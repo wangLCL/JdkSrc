@@ -257,7 +257,7 @@ public class Vector<E>
     private void grow(int minCapacity) {
         // overflow-conscious code
         int oldCapacity = elementData.length;
-        //没有设置就使用默认的
+        //没有设置就扩容2倍
         int newCapacity = oldCapacity + ((capacityIncrement > 0) ?
                                          capacityIncrement : oldCapacity);
         if (newCapacity - minCapacity < 0)
@@ -283,6 +283,12 @@ public class Vector<E>
      *
      * @param  newSize   the new size of this vector
      * @throws ArrayIndexOutOfBoundsException if the new size is negative
+     *
+     *
+     *
+     * 重新设置大小，如果大于大小就重新计算大小扩容
+     *
+     * 如果小于原来的大小，就将后面的值设置为null
      */
     public synchronized void setSize(int newSize) {
         modCount++;

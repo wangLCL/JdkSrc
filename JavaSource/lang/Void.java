@@ -30,6 +30,8 @@ package java.lang;
  * reference to the {@code Class} object representing the Java keyword
  * void.
  *
+ * 不可以实例化，对类型void的一个对象引用
+ *
  * @author  unascribed
  * @since   JDK1.1
  */

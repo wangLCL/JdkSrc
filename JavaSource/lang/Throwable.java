@@ -118,7 +118,7 @@ public class Throwable implements Serializable {
     /**
      * Native code saves some indication of the stack backtrace in this slot.
      */
-    private transient Object backtrace;
+    private transient Object backtrace; //不进行实例化？
 
     /**
      * Specific details about the Throwable.  For example, for
@@ -141,6 +141,8 @@ public class Throwable implements Serializable {
          * value indicates future attempts to set the stack trace will be
          * ignored.  The sentinal is equal to the result of calling:<br>
          * {@code new StackTraceElement("", "", null, Integer.MIN_VALUE)}
+         *
+         * 跟踪堆栈结果
          */
         public static final StackTraceElement STACK_TRACE_ELEMENT_SENTINEL =
             new StackTraceElement("", "", null, Integer.MIN_VALUE);

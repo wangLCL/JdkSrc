@@ -137,6 +137,7 @@ public class Arrays {
      * faster than traditional (one-pivot) Quicksort implementations.
      *
      * @param a the array to be sorted
+     *
      */
     public static void sort(int[] a) {
         DualPivotQuicksort.sort(a, 0, a.length - 1, null, 0, 0);

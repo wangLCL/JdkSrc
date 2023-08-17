@@ -5,118 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/JavaSourceReader.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JavaSourceReader.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/util/AbstractCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/AbstractCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/util/AbstractList.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/AbstractList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/util/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/ArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/ValueBased.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/capchi.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/capiota.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/capsigma.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/captheta.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/capupsil.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/chi.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/iota.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/javalang.doc.anc21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/javalang.doc.anc38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/javalang.doc.anc40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/javalang.doc.anc41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/sigma1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/theta.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/doc-files/upsilon.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/instrument/package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/management/package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/JavaSource/lang/ref/package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/AbstractStringBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Appendable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/AssertionStatusDirectives.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Boolean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/CharSequence$1CharIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/CharSequence$1CodePointIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/CharSequence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$AnnotationData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$Atomic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$EnclosingMethodInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$MethodArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class$ReflectionData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Class.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassFormatError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader$NativeLibrary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader$ParallelLoaders.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassValue$ClassValueMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassValue$Entry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassValue$Identity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassValue$Version.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ClassValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/CloneNotSupportedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Comparable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Error.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Exception.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/IllegalAccessException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/IllegalArgumentException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/InstantiationException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/InterruptedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Iterable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/LinkageError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/NoSuchFieldException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/NoSuchMethodException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/NumberFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Package$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Package$1PackageInfoProxy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Package.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ReflectiveOperationException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/RuntimeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/SecurityException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/StackTraceElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/String$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/String$CaseInsensitiveComparator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/String.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/StringBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/StringBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable$PrintStreamOrWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable$SentinelHolder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable$WrappedPrintStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable$WrappedPrintWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Throwable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/Void.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/annotation/Annotation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/invoke/MethodHandleStatics$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/invoke/MethodHandleStatics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/Reference$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/Reference$Lock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/Reference$ReferenceHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/Reference.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/ReferenceQueue$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/ReferenceQueue$Lock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/ReferenceQueue$Null.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/ReferenceQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/SoftReference.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/ref/WeakReference.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/AccessibleObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/AnnotatedElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/AnnotatedType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Constructor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Executable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Field.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/GenericDeclaration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/InvocationTargetException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Member.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Method.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Parameter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/JavaSourceReader/java/lang/reflect/TypeVariable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Throwable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Throwable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Void.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/util/Arrays.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/Arrays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/util/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +43,30 @@
       <option name="presentableId" value="Default" />
       <updated>1692226372964</updated>
     </task>
+    <task id="LOCAL-00001" summary="vector">
+      <option name="closed" value="true" />
+      <created>1692230294740</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692230294740</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="vector" />
+    <option name="LAST_COMMIT_MESSAGE" value="vector" />
   </component>
 </project>
