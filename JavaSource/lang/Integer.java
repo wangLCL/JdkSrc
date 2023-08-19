@@ -29,19 +29,26 @@ import java.lang.annotation.Native;
 
 /**
  * The {@code Integer} class wraps a value of the primitive type
- * {@code int} in an object. An object of type {@code Integer}
+ * {@code int} in an object.
+ * int包装类型的
+ *
+ * An object of type {@code Integer}
  * contains a single field whose type is {@code int}.
+ * 对象包含单一字段，类型为int
  *
  * <p>In addition, this class provides several methods for converting
  * an {@code int} to a {@code String} and a {@code String} to an
  * {@code int}, as well as other constants and methods useful when
  * dealing with an {@code int}.
+ * 此外，提供了int到string string->int  以及int到其他变量的方法
  *
  * <p>Implementation note: The implementations of the "bit twiddling"
  * methods (such as {@link #highestOneBit(int) highestOneBit} and
  * {@link #numberOfTrailingZeros(int) numberOfTrailingZeros}) are
  * based on material from Henry S. Warren, Jr.'s <i>Hacker's
  * Delight</i>, (Addison Wesley, 2002).
+ *
+ *
  *
  * @author  Lee Boynton
  * @author  Arthur van Hoff
@@ -53,6 +60,7 @@ public final class Integer extends Number implements Comparable<Integer> {
     /**
      * A constant holding the minimum value an {@code int} can
      * have, -2<sup>31</sup>.
+     * 最小值
      */
     @Native public static final int   MIN_VALUE = 0x80000000;
 
@@ -86,18 +94,23 @@ public final class Integer extends Number implements Comparable<Integer> {
     /**
      * Returns a string representation of the first argument in the
      * radix specified by the second argument.
+     * 返回一个字符串，第一个使用第二个参数作为基数（指定进制）
      *
      * <p>If the radix is smaller than {@code Character.MIN_RADIX}
      * or larger than {@code Character.MAX_RADIX}, then the radix
      * {@code 10} is used instead.
+     * 如果小于2   大于36使用10
      *
      * <p>If the first argument is negative, the first element of the
      * result is the ASCII minus character {@code '-'}
      * ({@code '\u005Cu002D'}). If the first argument is not
      * negative, no sign character appears in the result.
+     * 如果第一个参数是负数，那么第二个使用-
      *
      * <p>The remaining characters of the result represent the magnitude
-     * of the first argument. If the magnitude is zero, it is
+     * of the first argument.
+     *
+     * If the magnitude is zero, it is
      * represented by a single zero character {@code '0'}
      * ({@code '\u005Cu0030'}); otherwise, the first character of
      * the representation of the magnitude will not be the zero
@@ -1326,6 +1339,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * The number of bytes used to represent a {@code int} value in two's
      * complement binary form.
      *
+     * 二进制补码 二进制字节数   32位  一个字节是8位   4位
      * @since 1.8
      */
     public static final int BYTES = SIZE / Byte.SIZE;
