@@ -33,6 +33,8 @@ import java.util.function.Consumer;
 /**
  * Implementing this interface allows an object to be the target of
  * the "for-each loop" statement. See
+ *
+ * 实现这个方法  可以进行for - each循环
  * <strong>
  * <a href="{@docRoot}/../technotes/guides/language/foreach.html">For-each Loop</a>
  * </strong>
@@ -45,7 +47,7 @@ import java.util.function.Consumer;
 public interface Iterable<T> {
     /**
      * Returns an iterator over elements of type {@code T}.
-     *
+     * 返回一个迭代器
      * @return an Iterator.
      */
     Iterator<T> iterator();
@@ -53,14 +55,22 @@ public interface Iterable<T> {
     /**
      * Performs the given action for each element of the {@code Iterable}
      * until all elements have been processed or the action throws an
-     * exception.  Unless otherwise specified by the implementing class,
+     * exception.
+     * 对每一个元素都执行这个操作，直到所有数据结束或者抛出异常
+     *
+     * Unless otherwise specified by the implementing class,
      * actions are performed in the order of iteration (if an iteration order
-     * is specified).  Exceptions thrown by the action are relayed to the
+     * is specified).
+     * 除非有特殊有规定   按照迭代顺序执行
+     * Exceptions thrown by the action are relayed to the
      * caller.
+     * 异常给调用者
      *
      * @implSpec
+     *
      * <p>The default implementation behaves as if:
-     * <pre>{@code
+     *  默认实现如下
+     *  <pre>{@code
      *     for (T t : this)
      *         action.accept(t);
      * }</pre>

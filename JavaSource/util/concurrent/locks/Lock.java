@@ -43,6 +43,8 @@ import java.util.concurrent.TimeUnit;
  * quite different properties, and may support multiple associated
  * {@link Condition} objects.
  *
+ * lock实现更广泛的锁操作  它允许更加广泛的结构 不同的特性,可以支持多个条件对象相关联
+ *
  * <p>A lock is a tool for controlling access to a shared resource by
  * multiple threads. Commonly, a lock provides exclusive access to a
  * shared resource: only one thread at a time can acquire the lock and
@@ -50,6 +52,8 @@ import java.util.concurrent.TimeUnit;
  * acquired first. However, some locks may allow concurrent access to
  * a shared resource, such as the read lock of a {@link ReadWriteLock}.
  *
+ *
+ * 锁是一种工具
  * <p>The use of {@code synchronized} methods or statements provides
  * access to the implicit monitor lock associated with every object, but
  * forces all lock acquisition and release to occur in a block-structured way:

@@ -30,34 +30,56 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
- * The root interface in the <i>collection hierarchy</i>.  A collection
- * represents a group of objects, known as its <i>elements</i>.  Some
- * collections allow duplicate elements and others do not.  Some are ordered
- * and others unordered.  The JDK does not provide any <i>direct</i>
- * implementations of this interface: it provides implementations of more
- * specific subinterfaces like <tt>Set</tt> and <tt>List</tt>.  This interface
- * is typically used to pass collections around and manipulate them where
+ * The root interface in the <i>collection hierarchy</i>.
+ * 集合的根接口
+ * A collection represents a group of objects,
+ * 集合表示一组对象
+ * known as its <i>elements</i>.
+ * 称为元素
+ * Some collections allow duplicate elements and others do not.
+ * 一些运行重复一些是不允许的
+ * Some are ordered and others unordered.
+ * 一些有序一些没有
+ * The JDK does not provide any <i>direct</i> implementations of this interface:
+ * jdk不提供这些接口的实现
+ * it provides implementations of more specific subinterfaces like <tt>Set</tt> and <tt>List</tt>.
+ * 它提供更加具体的实现   比如set 和 list
+ * This interface is typically used to pass collections around and manipulate them where
  * maximum generality is desired.
+ *  通常用于集合  并且具有更大通用性
  *
  * <p><i>Bags</i> or <i>multisets</i> (unordered collections that may contain
  * duplicate elements) should implement this interface directly.
+ * 包或者集合应该实现这个接口
  *
  * <p>All general-purpose <tt>Collection</tt> implementation classes (which
  * typically implement <tt>Collection</tt> indirectly through one of its
- * subinterfaces) should provide two "standard" constructors: a void (no
- * arguments) constructor, which creates an empty collection, and a
- * constructor with a single argument of type <tt>Collection</tt>, which
- * creates a new collection with the same elements as its argument.  In
- * effect, the latter constructor allows the user to copy any collection,
+ * subinterfaces) should provide two "standard" constructors:
+ * 通常实现这个接口吸引实现两个标准构造函数
+ *
+ * a void (no arguments) constructor, which creates an empty collection,
+ * 一个没有参数的，创建空集合
+ * and a constructor with a single argument of type <tt>Collection</tt>,
+ * 一个参数的构造函数，类型是conllection
+ * which creates a new collection with the same elements as its argument.
+ * 创建一个相同参数的集合
+ * In effect, the latter constructor allows the user to copy any collection,
+ * 实际上  后面那个构造运行用户复制一个任何类型的集合
  * producing an equivalent collection of the desired implementation type.
+ * 生成所需集合实现类型的等效集合
  * There is no way to enforce this convention (as interfaces cannot contain
  * constructors) but all of the general-purpose <tt>Collection</tt>
  * implementations in the Java platform libraries comply.
+ * 没有办法强制约定  接口不能包含构造函数    它只有通用实现
  *
- * <p>The "destructive" methods contained in this interface, that is, the
- * methods that modify the collection on which they operate, are specified to
- * throw <tt>UnsupportedOperationException</tt> if this collection does not
- * support the operation.  If this is the case, these methods may, but are not
+ * <p>The "destructive" methods contained in this interface,
+ * 包含该界面的破坏性方法（修改类型方法）
+ * that is, the methods that modify the collection on which they operate,
+ *  这些方法修改操作
+ * are specified to throw <tt>UnsupportedOperationException</tt> if this collection does not
+ * support the operation.
+ * 如果不支持这些操作就会抛出异常
+ * If this is the case, these methods may, but are not
  * required to, throw an <tt>UnsupportedOperationException</tt> if the
  * invocation would have no effect on the collection.  For example, invoking
  * the {@link #addAll(Collection)} method on an unmodifiable collection may,
@@ -117,10 +139,12 @@ import java.util.stream.StreamSupport;
  *
  * @implSpec
  * The default method implementations (inherited or otherwise) do not apply any
- * synchronization protocol.  If a {@code Collection} implementation has a
- * specific synchronization protocol, then it must override default
- * implementations to apply that protocol.
- *
+ * synchronization protocol.
+ * 这些默认方法没有任何的同步操作
+ * If a {@code Collection} implementation has a specific synchronization protocol,
+ * 如果集合是实现一个同步操作，
+ * then it must override default implementations to apply that protocol.
+ * 必须覆盖来
  * @param <E> the type of elements in this collection
  *
  * @author  Josh Bloch
@@ -148,24 +172,25 @@ public interface Collection<E> extends Iterable<E> {
      * Returns the number of elements in this collection.  If this collection
      * contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
      * <tt>Integer.MAX_VALUE</tt>.
-     *
+     * 返回元素的个数  如果大于最大值，那么返回最大值
      * @return the number of elements in this collection
      */
     int size();
 
     /**
      * Returns <tt>true</tt> if this collection contains no elements.
-     *
+     * 返回true  集合不包含任何元素
      * @return <tt>true</tt> if this collection contains no elements
      */
     boolean isEmpty();
 
     /**
      * Returns <tt>true</tt> if this collection contains the specified element.
+     * 包含返回true
      * More formally, returns <tt>true</tt> if and only if this collection
      * contains at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
-     *
+     * 返回true说明博阿寒一个以上的
      * @param o element whose presence in this collection is to be tested
      * @return <tt>true</tt> if this collection contains the specified
      *         element
@@ -183,6 +208,7 @@ public interface Collection<E> extends Iterable<E> {
      * guarantees concerning the order in which the elements are returned
      * (unless this collection is an instance of some class that provides a
      * guarantee).
+     * 返回一个集合的迭代器  他不会保证返回数据的顺序
      *
      * @return an <tt>Iterator</tt> over the elements in this collection
      */
@@ -194,10 +220,14 @@ public interface Collection<E> extends Iterable<E> {
      * are returned by its iterator, this method must return the elements in
      * the same order.
      *
+     * 返回一个包含所有数据的数组     顺序和迭代器返回数的顺序相同
+     *
      * <p>The returned array will be "safe" in that no references to it are
      * maintained by this collection.  (In other words, this method must
      * allocate a new array even if this collection is backed by an array).
      * The caller is thus free to modify the returned array.
+     * 这个数组返回是安全的，他不会保留对他的引用，它可以任意修改返回的数组
+     *
      *
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
@@ -491,8 +521,9 @@ public interface Collection<E> extends Iterable<E> {
     boolean equals(Object o);
 
     /**
-     * Returns the hash code value for this collection.  While the
-     * <tt>Collection</tt> interface adds no stipulations to the general
+     * Returns the hash code value for this collection.
+     * 返回哈希码
+     * While the <tt>Collection</tt> interface adds no stipulations to the general
      * contract for the <tt>Object.hashCode</tt> method, programmers should
      * take note that any class that overrides the <tt>Object.equals</tt>
      * method must also override the <tt>Object.hashCode</tt> method in order
@@ -502,6 +533,7 @@ public interface Collection<E> extends Iterable<E> {
      *
      * @return the hash code value for this collection
      *
+     * 复写equeal也必须复写这个方法  以保证在equeal的时候可以 是的hashcode也相同
      * @see Object#hashCode()
      * @see Object#equals(Object)
      */
@@ -509,18 +541,27 @@ public interface Collection<E> extends Iterable<E> {
 
     /**
      * Creates a {@link Spliterator} over the elements in this collection.
-     *
+     * 这个集合的元素创建一个Spliterator
      * Implementations should document characteristic values reported by the
-     * spliterator.  Such characteristic values are not required to be reported
+     * spliterator.  、
+     *
+     *
+     * Such characteristic values are not required to be reported
      * if the spliterator reports {@link Spliterator#SIZED} and this collection
      * contains no elements.
      *
      * <p>The default implementation should be overridden by subclasses that
-     * can return a more efficient spliterator.  In order to
-     * preserve expected laziness behavior for the {@link #stream()} and
-     * {@link #parallelStream()}} methods, spliterators should either have the
-     * characteristic of {@code IMMUTABLE} or {@code CONCURRENT}, or be
-     * <em><a href="Spliterator.html#binding">late-binding</a></em>.
+     * can return a more efficient spliterator.
+     * 应该通过可以返回更高效的拼接器的子类覆盖默认实现
+     *
+     * In order to preserve expected laziness behavior for the {@link #stream()} and
+     * {@link #parallelStream()}} methods,
+     * 为了报这个他们的惰性行为
+     *
+     * spliterators should either have the
+     * characteristic of {@code IMMUTABLE} or {@code CONCURRENT},
+     * 分频器应该保证它的不可变和相等性
+     * or be  <em><a href="Spliterator.html#binding">late-binding</a></em>.
      * If none of these is practical, the overriding class should describe the
      * spliterator's documented policy of binding and structural interference,
      * and should override the {@link #stream()} and {@link #parallelStream()}
@@ -584,16 +625,16 @@ public interface Collection<E> extends Iterable<E> {
     /**
      * Returns a possibly parallel {@code Stream} with this collection as its
      * source.  It is allowable for this method to return a sequential stream.
-     *
+     * 返回一个使用此集合可以并行的流
      * <p>This method should be overridden when the {@link #spliterator()}
      * method cannot return a spliterator that is {@code IMMUTABLE},
      * {@code CONCURRENT}, or <em>late-binding</em>. (See {@link #spliterator()}
      * for details.)
-     *
+     * 应该重写spliterator()方法
      * @implSpec
      * The default implementation creates a parallel {@code Stream} from the
      * collection's {@code Spliterator}.
-     *
+     * 默认返回一个可以进行并行处理的流
      * @return a possibly parallel {@code Stream} over the elements in this
      * collection
      * @since 1.8

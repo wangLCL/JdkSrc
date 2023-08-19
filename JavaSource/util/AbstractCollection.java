@@ -28,24 +28,37 @@ package java.util;
 /**
  * This class provides a skeletal implementation of the <tt>Collection</tt>
  * interface, to minimize the effort required to implement this interface. <p>
+ * 实现了collection积极和的基本框架，实现了最基本的结构实现
  *
- * To implement an unmodifiable collection, the programmer needs only to
- * extend this class and provide implementations for the <tt>iterator</tt> and
- * <tt>size</tt> methods.  (The iterator returned by the <tt>iterator</tt>
+ *
+ * To implement an unmodifiable collection,
+ * 实现一个不可以修改额集合，
+ * the programmer needs only to extend this class and provide implementations for the <tt>iterator</tt> and
+ * <tt>size</tt> methods.
+ * 程序员仅仅扩展这个这个class， 提供迭代器和size方法
+ * (The iterator returned by the <tt>iterator</tt>
  * method must implement <tt>hasNext</tt> and <tt>next</tt>.)<p>
- *
- * To implement a modifiable collection, the programmer must additionally
- * override this class's <tt>add</tt> method (which otherwise throws an
- * <tt>UnsupportedOperationException</tt>), and the iterator returned by the
- * <tt>iterator</tt> method must additionally implement its <tt>remove</tt>
+ * 这个迭代器必须要实现hasnext和next
+ * To implement a modifiable collection,
+ * 实现一个可以修改的集合
+ * the programmer must additionally override this class's <tt>add</tt> method (which otherwise throws an
+ * <tt>UnsupportedOperationException</tt>),
+ * 程序员需要覆盖add方法
+ * and the iterator returned by the <tt>iterator</tt> method must additionally implement its <tt>remove</tt>
  * method.<p>
+ *    迭代器必须实现一个remove方法。
  *
  * The programmer should generally provide a void (no argument) and
- * <tt>Collection</tt> constructor, as per the recommendation in the
+ * <tt>Collection</tt> constructor,
+ * 必须提供通用一个空的构造方法
+ * as per the recommendation in the
  * <tt>Collection</tt> interface specification.<p>
  *
+ *
  * The documentation for each non-abstract method in this class describes its
- * implementation in detail.  Each of these methods may be overridden if
+ * implementation in detail.
+ * 这个文档描述了非抽象方法的实现
+ * Each of these methods may be overridden if
  * the collection being implemented admits a more efficient implementation.<p>
  *
  * This class is a member of the
@@ -92,7 +105,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * <p>This implementation iterates over the elements in the collection,
      * checking each element in turn for equality with the specified element.
      *
-     * 包含通过遍历找
+     * 包含通过遍历找  如果查找的是null，就找null，否则就找值
      * @throws ClassCastException   {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
      */
@@ -125,6 +138,10 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *
      * <p>This method is equivalent to:
      *
+     * 数组的存储顺序和迭代器相同  将数据复制到数组中，不会保留原来的引用，所有可以进行操作他们(安全的)
+     *
+     * 只能说不会影响集合，并不代表不会改变集合中数据的值（对象的属性）
+     *
      *  <pre> {@code
      * List<E> list = new ArrayList<E>(size());
      * for (E e : this)
@@ -133,7 +150,6 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * }</pre>
      *
      *
-     * 创建数组，将数据复制到目标中
      */
     public Object[] toArray() {
         // Estimate size of array; be prepared to see more or fewer elements
@@ -142,7 +158,8 @@ public abstract class AbstractCollection<E> implements Collection<E> {
         //创建迭代器
         Iterator<E> it = iterator();
         for (int i = 0; i < r.length; i++) {
-            //遍历但是不存在下一个，就返回  少于预期
+            //遍历但是不存在下一个，就返回  少于预期  也会返回正确的结果，   将素组变为i大小
+            //简单说：本来有n个元素，但是遍历过程中修改了，变为了m m<n  返回数组为m大小
             if (! it.hasNext()) // fewer elements than expected
                 return Arrays.copyOf(r, i);
             r[i] = it.next();
@@ -174,6 +191,8 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      *     list.add(e);
      * return list.toArray(a);
      * }</pre>
+     *
+     * 这个方法会清除空白区域
      *
      * @throws ArrayStoreException  {@inheritDoc}
      * @throws NullPointerException {@inheritDoc}
@@ -222,6 +241,8 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * Reallocates the array being used within toArray when the iterator
      * returned more elements than expected, and finishes filling it from
      * the iterator.
+     *
+     * 先进行1.5扩容，然后重新加值
      *
      * @param r the array, replete with previously stored elements
      * @param it the in-progress iterator over this collection
@@ -286,6 +307,7 @@ public abstract class AbstractCollection<E> implements Collection<E> {
      * collection's iterator method does not implement the <tt>remove</tt>
      * method and this collection contains the specified object.
      *
+     * 删除第一个
      * @throws UnsupportedOperationException {@inheritDoc}
      * @throws ClassCastException            {@inheritDoc}
      * @throws NullPointerException          {@inheritDoc}

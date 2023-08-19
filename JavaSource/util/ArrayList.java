@@ -110,11 +110,13 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * Default initial capacity.
+     * 默认容量
      */
     private static final int DEFAULT_CAPACITY = 10;
 
     /**
      * Shared empty array instance used for empty instances.
+     * 空数组实例
      */
     private static final Object[] EMPTY_ELEMENTDATA = {};
 
@@ -123,6 +125,10 @@ public class ArrayList<E> extends AbstractList<E>
      * The capacity of the ArrayList is the length of this array buffer. Any
      * empty ArrayList with elementData == EMPTY_ELEMENTDATA will be expanded to
      * DEFAULT_CAPACITY when the first element is added.
+     *
+     * 这个数组用于存储arraylist条目
+     * 他的容量就是这个数组的大小，
+     * 任何空数组第一次加入元素的时候都扩展为默认的容量
      */
     transient Object[] elementData; // non-private to simplify nested class access
 
@@ -166,6 +172,7 @@ public class ArrayList<E> extends AbstractList<E>
      * @throws NullPointerException if the specified collection is null
      */
     public ArrayList(Collection<? extends E> c) {
+        //仅仅将元素复制，去除空元素
         elementData = c.toArray();
         size = elementData.length;
         // c.toArray might (incorrectly) not return Object[] (see 6260652)
@@ -193,7 +200,7 @@ public class ArrayList<E> extends AbstractList<E>
      * necessary, to ensure that it can hold at least the number of elements
      * specified by the minimum capacity argument.
      *
-     * 计算容量 如果不是用户给个0，那就为0，如果是用户给的0值就使用默认的
+     * 如果是空数组，那么就给默认容量
      *
      * @param   minCapacity   the desired minimum capacity
      */
@@ -220,7 +227,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     private void ensureExplicitCapacity(int minCapacity) {
         modCount++;
-
+        //最小容量大于现在容量，就扩容
         // overflow-conscious code
         if (minCapacity - elementData.length > 0)
             grow(minCapacity);
@@ -246,7 +253,7 @@ public class ArrayList<E> extends AbstractList<E>
         int newCapacity = oldCapacity + (oldCapacity >> 1);
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;//扩容一倍还达不到就使用传入的值
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
+        if (newCapacity - MAX_ARRAY_SIZE > 0) //大于最大值就使用最大值
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
         elementData = Arrays.copyOf(elementData, newCapacity);
@@ -283,6 +290,8 @@ public class ArrayList<E> extends AbstractList<E>
      * More formally, returns <tt>true</tt> if and only if this list contains
      * at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
+     *
+     * 包含使用的是查找下标的方法
      *
      * @param o element whose presence in this list is to be tested
      * @return <tt>true</tt> if this list contains the specified element
@@ -396,11 +405,12 @@ public class ArrayList<E> extends AbstractList<E>
      */
     @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
-        //和装不下
+        //装不下
         if (a.length < size)
             // Make a new array of a's runtime type, but my contents:
             return (T[]) Arrays.copyOf(elementData, size, a.getClass());
         System.arraycopy(elementData, 0, a, 0, size);
+        //大于size部分。本身就为null，这个操作不是很明白
         if (a.length > size)
             a[size] = null;
         return a;
@@ -1391,6 +1401,12 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
+    /**
+     * 先通过bitSet记录要删除的下标   然后执行删除操作
+     * @param filter a predicate which returns {@code true} for elements to be
+     *        removed
+     * @return
+     */
     @Override
     public boolean removeIf(Predicate<? super E> filter) {
         Objects.requireNonNull(filter);
@@ -1434,6 +1450,10 @@ public class ArrayList<E> extends AbstractList<E>
         return anyToRemove;
     }
 
+    /**
+     * 将每一个元素通过运算得到结果  存储list
+     * @param operator the operator to apply to each element
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void replaceAll(UnaryOperator<E> operator) {
@@ -1449,6 +1469,12 @@ public class ArrayList<E> extends AbstractList<E>
         modCount++;
     }
 
+    /**
+     * 通过Comparator对齐进行排序  排队不影响数据内容
+     * @param c the {@code Comparator} used to compare list elements.
+     *          A {@code null} value indicates that the elements'
+     *          {@linkplain Comparable natural ordering} should be used
+     */
     @Override
     @SuppressWarnings("unchecked")
     public void sort(Comparator<? super E> c) {

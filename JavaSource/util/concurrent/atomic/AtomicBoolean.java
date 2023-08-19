@@ -44,12 +44,15 @@ import sun.misc.Unsafe;
  * updated flags, and cannot be used as a replacement for a
  * {@link java.lang.Boolean}.
  *
+ * 一个boolean原子更新   不可以代替Boolean
+ *
  * @since 1.5
  * @author Doug Lea
  */
 public class AtomicBoolean implements java.io.Serializable {
     private static final long serialVersionUID = 4654671469794556979L;
     // setup to use Unsafe.compareAndSwapInt for updates
+
     private static final Unsafe unsafe = Unsafe.getUnsafe();
     private static final long valueOffset;
 
@@ -60,11 +63,16 @@ public class AtomicBoolean implements java.io.Serializable {
         } catch (Exception ex) { throw new Error(ex); }
     }
 
+    /**
+     * 默认值是false
+     */
     private volatile int value;
 
     /**
      * Creates a new {@code AtomicBoolean} with the given initial value.
+     * true ： 1  false : 0
      *
+     * 给值
      * @param initialValue the initial value
      */
     public AtomicBoolean(boolean initialValue) {
@@ -90,12 +98,15 @@ public class AtomicBoolean implements java.io.Serializable {
      * Atomically sets the value to the given updated value
      * if the current value {@code ==} the expected value.
      *
+     * 等于期待就更新
+     *
      * @param expect the expected value
      * @param update the new value
      * @return {@code true} if successful. False return indicates that
      * the actual value was not equal to the expected value.
      */
     public final boolean compareAndSet(boolean expect, boolean update) {
+        //期待值更新值
         int e = expect ? 1 : 0;
         int u = update ? 1 : 0;
         return unsafe.compareAndSwapInt(this, valueOffset, e, u);
