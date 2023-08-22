@@ -34,17 +34,31 @@ class Bits {
     /*
      * Methods for unpacking primitive values from byte arrays starting at
      * given offsets.
+     *
+     * 某一个bit位
      */
 
     static boolean getBoolean(byte[] b, int off) {
         return b[off] != 0;
     }
 
+    /**
+     * char是两位  读取off 和 off+1位  各位 十位
+     * @param b
+     * @param off
+     * @return
+     */
     static char getChar(byte[] b, int off) {
         return (char) ((b[off + 1] & 0xFF) +
                        (b[off] << 8));
     }
 
+    /**
+     * 为什么求&,这是为了值得到ff位的数据
+     * @param b
+     * @param off
+     * @return
+     */
     static short getShort(byte[] b, int off) {
         return (short) ((b[off + 1] & 0xFF) +
                         (b[off] << 8));

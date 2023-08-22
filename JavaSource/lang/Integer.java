@@ -74,6 +74,8 @@ public final class Integer extends Number implements Comparable<Integer> {
      * The {@code Class} instance representing the primitive type
      * {@code int}.
      *
+     * 类型
+     *
      * @since   JDK1.1
      */
     @SuppressWarnings("unchecked")
@@ -81,6 +83,8 @@ public final class Integer extends Number implements Comparable<Integer> {
 
     /**
      * All possible chars for representing a number as a String
+     *
+     * 26 + 9 = 35
      */
     final static char[] digits = {
         '0' , '1' , '2' , '3' , '4' , '5' ,
@@ -134,6 +138,8 @@ public final class Integer extends Number implements Comparable<Integer> {
      *  {@code Integer.toString(n, 16).toUpperCase()}
      * </blockquote>
      *
+     * 数值除以进制，将每一位写入数组，
+     *
      * @param   i       an integer to be converted to a string.
      * @param   radix   the radix to use in the string representation.
      * @return  a string representation of the argument in the specified radix.
@@ -141,6 +147,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * @see     java.lang.Character#MIN_RADIX
      */
     public static String toString(int i, int radix) {
+        //小于2  大于36 使用默认的10   因为0-9 + a ~ z = 36个，多了不知道显示啥
         if (radix < Character.MIN_RADIX || radix > Character.MAX_RADIX)
             radix = 10;
 
@@ -148,7 +155,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         if (radix == 10) {
             return toString(i);
         }
-
+        //位数4x8 = 32 + 符号位
         char buf[] = new char[33];
         boolean negative = (i < 0);
         int charPos = 32;
@@ -156,7 +163,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         if (!negative) {
             i = -i;
         }
-
+        //从后向前写入数组
         while (i <= -radix) {
             buf[charPos--] = digits[-(i % radix)];
             i = i / radix;
@@ -166,7 +173,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         if (negative) {
             buf[--charPos] = '-';
         }
-
+        //数组变为字符串
         return new String(buf, charPos, (33 - charPos));
     }
 
@@ -318,6 +325,7 @@ public final class Integer extends Number implements Comparable<Integer> {
 
     /**
      * Convert the integer to an unsigned number.
+     * 转换为无符号数值
      */
     private static String toUnsignedString0(int val, int shift) {
         // assert shift > 0 && shift <=5 : "Illegal shift value";
@@ -1537,7 +1545,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the signum function of the specified {@code int} value.  (The
      * return value is -1 if the specified value is negative; 0 if the
      * specified value is zero; and 1 if the specified value is positive.)
-     *
+     * 值为负数就返回-1   值为0 就返回0   值为正就返回1
      * @param i the value whose signum is to be computed
      * @return the signum function of the specified {@code int} value.
      * @since 1.5
