@@ -44,6 +44,8 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * reread before new bytes are  taken from
  * the contained input stream.
  *
+ *
+ * 简单说就是将数据放入到数组中
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */

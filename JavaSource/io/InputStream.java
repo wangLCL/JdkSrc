@@ -29,8 +29,11 @@ package java.io;
  * This abstract class is the superclass of all classes representing
  * an input stream of bytes.
  *
+ * 所有输入流的父类
+ *
  * <p> Applications that need to define a subclass of <code>InputStream</code>
  * must always provide a method that returns the next byte of input.
+ * 子类需要实现读取下一个字节的方法
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
@@ -46,6 +49,9 @@ public abstract class InputStream implements Closeable {
 
     // MAX_SKIP_BUFFER_SIZE is used to determine the maximum buffer size to
     // use when skipping.
+    /**
+     * 最大的跳过大小
+     */
     private static final int MAX_SKIP_BUFFER_SIZE = 2048;
 
     /**
@@ -55,6 +61,10 @@ public abstract class InputStream implements Closeable {
      * has been reached, the value <code>-1</code> is returned. This method
      * blocks until input data is available, the end of the stream is detected,
      * or an exception is thrown.
+     *
+     * 读取下一个byte，范围是0-255  最后的末尾返回的是-1
+     *
+     * 方法是堵塞的， 直到结尾或者发生了异常
      *
      * <p> A subclass must provide an implementation of this method.
      *
@@ -157,6 +167,8 @@ public abstract class InputStream implements Closeable {
      * <code>len</code> is negative, or <code>len</code> is greater than
      * <code>b.length - off</code>
      * @see        java.io.InputStream#read()
+     *
+     * 这个方法还是通过一个字节一个字节读取来的
      */
     public int read(byte b[], int off, int len) throws IOException {
         if (b == null) {

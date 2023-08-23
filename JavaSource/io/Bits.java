@@ -28,6 +28,9 @@ package java.io;
 /**
  * Utility methods for packing/unpacking primitive values in/out of byte arrays
  * using big-endian byte ordering.
+ *
+ * 工具类，byte中存储内容，   转换出内容
+ * bool 一位   int 4位  char两位
  */
 class Bits {
 

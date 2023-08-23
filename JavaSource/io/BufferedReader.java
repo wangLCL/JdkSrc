@@ -102,6 +102,7 @@ public class BufferedReader extends Reader {
         if (sz <= 0)
             throw new IllegalArgumentException("Buffer size <= 0");
         this.in = in;
+        //字符数组存储
         cb = new char[sz];
         nextChar = nChars = 0;
     }
@@ -110,6 +111,7 @@ public class BufferedReader extends Reader {
      * Creates a buffering character-input stream that uses a default-sized
      * input buffer.
      *
+     * 默认大小8192
      * @param  in   A Reader
      */
     public BufferedReader(Reader in) {
