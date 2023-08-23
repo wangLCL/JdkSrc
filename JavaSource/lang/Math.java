@@ -132,6 +132,8 @@ public final class Math {
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
      *
+     * 角度是弧度    需要进行转化
+     *
      * @param   a   an angle, in radians.
      * @return  the sine of the argument.
      */
@@ -146,6 +148,8 @@ public final class Math {
      *
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
+     *
+     *
      *
      * @param   a   an angle, in radians.
      * @return  the cosine of the argument.
@@ -163,6 +167,7 @@ public final class Math {
      *
      * <p>The computed result must be within 1 ulp of the exact result.
      * Results must be semi-monotonic.
+     *
      *
      * @param   a   an angle, in radians.
      * @return  the tangent of the argument.

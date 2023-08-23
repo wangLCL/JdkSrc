@@ -38,9 +38,13 @@ import sun.nio.ch.FileChannelImpl;
  * file-writing object) at a time.  In such situations the constructors in
  * this class will fail if the file involved is already open.
  *
+ * 文件输出流是将数据写入File或者是fd  文件如果只允许一个打开，那么该类就会出现错误
+ *
  * <p><code>FileOutputStream</code> is meant for writing streams of raw bytes
  * such as image data. For writing streams of characters, consider using
  * <code>FileWriter</code>.
+ *
+ * 字符写入使用FileWriter
  *
  * @author  Arthur van Hoff
  * @see     java.io.File
@@ -54,6 +58,8 @@ class FileOutputStream extends OutputStream
 {
     /**
      * The system dependent file descriptor.
+     *
+     * 文件句柄
      */
     private final FileDescriptor fd;
 
@@ -74,14 +80,15 @@ class FileOutputStream extends OutputStream
      * Creates a file output stream to write to the file with the
      * specified name. A new <code>FileDescriptor</code> object is
      * created to represent this file connection.
+     *  创建一个文件指定名称
      * <p>
      * First, if there is a security manager, its <code>checkWrite</code>
      * method is called with <code>name</code> as its argument.
-     * <p>
+     * <p> 如果存在一个安全管理器  调用checkWrite
      * If the file exists but is a directory rather than a regular file, does
      * not exist but cannot be created, or cannot be opened for any other
      * reason then a <code>FileNotFoundException</code> is thrown.
-     *
+     * 如果不是常规文件就会抛出异常
      * @param      name   the system-dependent filename
      * @exception  FileNotFoundException  if the file exists but is a directory
      *                   rather than a regular file, does not exist but cannot

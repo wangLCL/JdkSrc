@@ -38,6 +38,7 @@ import java.util.Arrays;
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
  *
+ * 缓冲输出流，好处就是不需要单个的写入底层，而是通过写入一批的
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
@@ -46,17 +47,21 @@ public class ByteArrayOutputStream extends OutputStream {
 
     /**
      * The buffer where data is stored.
+     * //存储写入的数据
      */
     protected byte buf[];
 
     /**
      * The number of valid bytes in the buffer.
+     * 有效数据的个数
      */
     protected int count;
 
     /**
      * Creates a new byte array output stream. The buffer capacity is
      * initially 32 bytes, though its size increases if necessary.
+     *
+     * 创建一个输出数组   大小是32  如果有必要会增加
      */
     public ByteArrayOutputStream() {
         this(32);
@@ -102,7 +107,7 @@ public class ByteArrayOutputStream extends OutputStream {
     private void grow(int minCapacity) {
         // overflow-conscious code
         int oldCapacity = buf.length;
-        int newCapacity = oldCapacity << 1;
+        int newCapacity = oldCapacity << 1; //每次扩容2被
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
         if (newCapacity < 0) {

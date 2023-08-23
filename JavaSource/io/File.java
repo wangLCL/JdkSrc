@@ -152,6 +152,7 @@ public class File
 
     /**
      * The FileSystem object representing the platform's local file system.
+     * 文件对象   平台本地的文件系统
      */
     private static final FileSystem fs = DefaultFileSystem.getFileSystem();
 

@@ -29,11 +29,16 @@ package java.io;
  * This abstract class is the superclass of all classes representing
  * an output stream of bytes. An output stream accepts output bytes
  * and sends them to some sink.
+ * 这个抽象类是所有输出流的超类。输出流接收字符并将其输出
+ *
+ *
  * <p>
+ *
  * Applications that need to define a subclass of
  * <code>OutputStream</code> must always provide at least a method
  * that writes one byte of output.
  *
+ *  子类必须要提供一个输出字节的方法
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
  * @see     java.io.ByteArrayOutputStream
@@ -54,6 +59,8 @@ public abstract class OutputStream implements Closeable, Flushable {
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
      *
+     * 指定的字符写入到输出流中
+     *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs. In particular,
      *             an <code>IOException</code> may be thrown if the
@@ -67,6 +74,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      * is that it should have exactly the same effect as the call
      * <code>write(b, 0, b.length)</code>.
      *
+     * 写入一个字节数组
      * @param      b   the data.
      * @exception  IOException  if an I/O error occurs.
      * @see        java.io.OutputStream#write(byte[], int, int)
@@ -133,6 +141,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      * <p>
      * The <code>flush</code> method of <code>OutputStream</code> does nothing.
      *
+     * 将数据刷洗输出
      * @exception  IOException  if an I/O error occurs.
      */
     public void flush() throws IOException {
@@ -145,7 +154,7 @@ public abstract class OutputStream implements Closeable, Flushable {
      * output operations and cannot be reopened.
      * <p>
      * The <code>close</code> method of <code>OutputStream</code> does nothing.
-     *
+     * 关闭一切资源
      * @exception  IOException  if an I/O error occurs.
      */
     public void close() throws IOException {

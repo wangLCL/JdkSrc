@@ -34,6 +34,9 @@ package java.lang;
  * release, avoiding resource exhaustion exceptions and errors that
  * may otherwise occur.
  *
+ * 可以保存资源的对象（如文件或套接字句柄），直到它关闭。 AutoCloseable对象的close()
+ * 方法在退出已在资源规范头中声明对象的try -with-resources块时自动调用。 这种结构确保迅速释放，避免资源耗尽异常和可能发生的错误。
+ *
  * @apiNote
  * <p>It is possible, and in fact common, for a base class to
  * implement AutoCloseable even though not all of its subclasses or

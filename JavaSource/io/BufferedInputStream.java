@@ -50,6 +50,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 public
 class BufferedInputStream extends FilterInputStream {
 
+    //默认缓冲数组大小
     private static int DEFAULT_BUFFER_SIZE = 8192;
 
     /**
@@ -57,6 +58,8 @@ class BufferedInputStream extends FilterInputStream {
      * Some VMs reserve some header words in an array.
      * Attempts to allocate larger arrays may result in
      * OutOfMemoryError: Requested array size exceeds VM limit
+     *
+     * 最大缓冲大小
      */
     private static int MAX_BUFFER_SIZE = Integer.MAX_VALUE - 8;
 
@@ -154,6 +157,7 @@ class BufferedInputStream extends FilterInputStream {
      * nulled out due to close; if not return it;
      */
     private InputStream getInIfOpen() throws IOException {
+        //关闭将in设置为null
         InputStream input = in;
         if (input == null)
             throw new IOException("Stream closed");
@@ -165,6 +169,7 @@ class BufferedInputStream extends FilterInputStream {
      * close; if not return it;
      */
     private byte[] getBufIfOpen() throws IOException {
+        //close方法将buffer设置为null
         byte[] buffer = buf;
         if (buffer == null)
             throw new IOException("Stream closed");
@@ -196,6 +201,7 @@ class BufferedInputStream extends FilterInputStream {
      * @exception IllegalArgumentException if {@code size <= 0}.
      */
     public BufferedInputStream(InputStream in, int size) {
+        //传入输入流   设置默认缓冲区大小，  如果没给
         super(in);
         if (size <= 0) {
             throw new IllegalArgumentException("Buffer size <= 0");
@@ -476,10 +482,12 @@ class BufferedInputStream extends FilterInputStream {
     public void close() throws IOException {
         byte[] buffer;
         while ( (buffer = buf) != null) {
+            //将buff设置为null
             if (bufUpdater.compareAndSet(this, buffer, null)) {
                 InputStream input = in;
                 in = null;
                 if (input != null)
+                    //调用input的close方法
                     input.close();
                 return;
             }

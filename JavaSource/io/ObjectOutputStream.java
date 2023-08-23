@@ -45,17 +45,26 @@ import sun.reflect.misc.ReflectUtil;
  * using a file for the stream.  If the stream is a network socket stream, the
  * objects can be reconstituted on another host or in another process.
  *
+ * ObjectOutputStream将Java对象的原始数据类型和图形写入OutputStream
+ * 可以使用ObjectInputStream读取（重构）对象。 可以通过使用流的文件来实现对象的持久存储。
+ * 如果流是网络套接字流，则可以在另一个主机上或另一个进程中重构对象。
+ *
  * <p>Only objects that support the java.io.Serializable interface can be
  * written to streams.  The class of each serializable object is encoded
  * including the class name and signature of the class, the values of the
  * object's fields and arrays, and the closure of any other objects referenced
  * from the initial objects.
  *
+ * 只有实现了serializable才可以写入
+ * 每个可序列化对象的类被编码，包括类的类名和签名，对象的字段和数组的值以及从初始对象引用
+ * 的任何其他对象的关闭。
+ *
  * <p>The method writeObject is used to write an object to the stream.  Any
  * object, including Strings and arrays, is written with writeObject. Multiple
  * objects or primitives can be written to the stream.  The objects must be
  * read back from the corresponding ObjectInputstream with the same types and
  * in the same order as they were written.
+ * 使用writeObject方法将一个对象写入流中
  *
  * <p>Primitive data types can also be written to the stream using the
  * appropriate methods from DataOutput. Strings can also be written using the

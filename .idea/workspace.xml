@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Integer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Integer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/ByteArrayOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/ByteArrayOutputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/Closeable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/Closeable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/FileOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/FileOutputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/ObjectOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/ObjectOutputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/OutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/OutputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/AutoCloseable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/AutoCloseable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Math.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Math.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +84,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692426676489</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bit">
+      <option name="closed" value="true" />
+      <created>1692664281183</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692664281183</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,7 +111,8 @@
     <MESSAGE value="乱七八糟看看，下来按照计划把" />
     <MESSAGE value="ArrayList" />
     <MESSAGE value="不着急   慢慢看" />
-    <option name="LAST_COMMIT_MESSAGE" value="不着急   慢慢看" />
+    <MESSAGE value="bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="bit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
