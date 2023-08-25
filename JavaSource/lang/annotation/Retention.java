@@ -40,6 +40,10 @@ package java.lang.annotation;
  * @since 1.5
  * @jls 9.6.3.2 @Retention
  */
+
+/**
+ * 指示要注释具有注释类型的注释的保留时间。 如果注释类型声明中没有保留注释，则保留策略默认为RetentionPolicy.CLASS
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)

@@ -31,12 +31,15 @@ package java.lang.annotation;
  * in conjunction with the {@link Retention} meta-annotation type to specify
  * how long annotations are to be retained.
  *
+ * 注解的时间性
  * @author  Joshua Bloch
  * @since 1.5
  */
 public enum RetentionPolicy {
     /**
      * Annotations are to be discarded by the compiler.
+     *
+     * 注释将被编译器丢弃。   比如  覆盖父类方法，这个只能提示用户，他并没其他用
      */
     SOURCE,
 
@@ -44,13 +47,14 @@ public enum RetentionPolicy {
      * Annotations are to be recorded in the class file by the compiler
      * but need not be retained by the VM at run time.  This is the default
      * behavior.
+     * 注解记录在类文件种， 但是vm不会保留
      */
     CLASS,
 
     /**
      * Annotations are to be recorded in the class file by the compiler and
      * retained by the VM at run time, so they may be read reflectively.
-     *
+     * 可以反射读取
      * @see java.lang.reflect.AnnotatedElement
      */
     RUNTIME

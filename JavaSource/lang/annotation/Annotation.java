@@ -31,6 +31,9 @@ package java.lang.annotation;
  * an annotation type.  Also note that this interface does not itself
  * define an annotation type.
  *
+ * 左右注解类型的公共接口  但是不限定注解类型
+ * 还要注意，此接口本身并不定义注释类
+ *
  * More information about annotation types can be found in section 9.6 of
  * <cite>The Java&trade; Language Specification</cite>.
  *

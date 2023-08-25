@@ -33,6 +33,12 @@ package java.lang.annotation;
  * Documented, its annotations become part of the public API
  * of the annotated elements.
  *
+ * 具有类下的注解  默认清空下由javadoc 和 类似工具记录，
+ *
+ * 使用此类注释影响客户端使用注解元素的声明
+ *
+ * 如果使用2，他将成为api的一部分
+ *
  * @author  Joshua Bloch
  * @since 1.5
  */

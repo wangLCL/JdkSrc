@@ -32,6 +32,8 @@ package java.lang.annotation;
  * java.lang.reflect.AnnotatedElement API used to read annotations
  * reflectively}.
  *
+ * 异常  错误定义的一般套路
+ *
  * @author  Josh Bloch
  * @see     java.lang.reflect.AnnotatedElement
  * @since   1.5

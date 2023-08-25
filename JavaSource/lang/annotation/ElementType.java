@@ -32,6 +32,8 @@ package java.lang.annotation;
  * meta-annotations to specify where it is legal to write annotations of a
  * given type.
  *
+ * 枚举提供了简单的注解分类  target指定给定注解的位置
+ *
  * <p>The syntactic locations where annotations may appear are split into
  * <em>declaration contexts</em> , where annotations apply to declarations, and
  * <em>type contexts</em> , where annotations apply to types used in
@@ -42,9 +44,13 @@ package java.lang.annotation;
  * {@link #PARAMETER} , {@link #TYPE} , and {@link #TYPE_PARAMETER} correspond
  * to the declaration contexts in JLS 9.6.4.1.
  *
+ *
+ *
  * <p>For example, an annotation whose type is meta-annotated with
  * {@code @Target(ElementType.FIELD)} may only be written as a modifier for a
- * field declaration.
+ * field declaration.、
+ *
+ * 比如使用Field指定写入的位置是字段
  *
  * <p>The constant {@link #TYPE_USE} corresponds to the 15 type contexts in JLS
  * 4.11, as well as to two declaration contexts: type declarations (including
@@ -71,30 +77,39 @@ package java.lang.annotation;
  * @jls 4.1 The Kinds of Types and Values
  */
 public enum ElementType {
+    //类  接口  枚举声明
     /** Class, interface (including annotation type), or enum declaration */
     TYPE,
 
+    //字段
     /** Field declaration (includes enum constants) */
     FIELD,
 
+    //方法
     /** Method declaration */
     METHOD,
 
+    //正式参数
     /** Formal parameter declaration */
     PARAMETER,
 
+    //构造方法
     /** Constructor declaration */
     CONSTRUCTOR,
 
+    //局部变量
     /** Local variable declaration */
     LOCAL_VARIABLE,
 
+    //注解类型声明
     /** Annotation type declaration */
     ANNOTATION_TYPE,
 
+    //包装声明
     /** Package declaration */
     PACKAGE,
 
+    //键入参数声明
     /**
      * Type parameter declaration
      *
@@ -102,6 +117,7 @@ public enum ElementType {
      */
     TYPE_PARAMETER,
 
+    //使用类型
     /**
      * Use of a type
      *
