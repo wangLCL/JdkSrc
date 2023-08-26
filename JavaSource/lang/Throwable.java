@@ -247,6 +247,8 @@ public class Throwable implements Serializable {
      *
      * <p>The {@link #fillInStackTrace()} method is called to initialize
      * the stack trace data in the newly created throwable.
+     *
+     * 收集调用栈
      */
     public Throwable() {
         fillInStackTrace();

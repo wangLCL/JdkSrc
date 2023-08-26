@@ -33,6 +33,8 @@ package java.lang.instrument;
  * This class serves as a parameter block to the <code>Instrumentation.redefineClasses</code> method.
  * Serves to bind the <code>Class</code> that needs redefining together with the new class file bytes.
  *
+ * 该类作为Instrumentation.redefineClasses方法的参数块。 用来绑定类 ，需要用新的类文件字节一起重新定义。
+ *
  * @see     java.lang.instrument.Instrumentation#redefineClasses
  * @since   1.5
  */

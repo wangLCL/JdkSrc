@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Integer.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Integer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Number.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Throwable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Throwable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/Annotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/Annotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/AnnotationFormatError.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/AnnotationFormatError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/Documented.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/Documented.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/ElementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/ElementType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/Retention.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/Retention.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/RetentionPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/RetentionPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/instrument/ClassDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/instrument/ClassDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/util/concurrent/TimeUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/concurrent/TimeUnit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +127,17 @@
     <MESSAGE value="bit" />
     <MESSAGE value="file" />
     <option name="LAST_COMMIT_MESSAGE" value="file" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/JavaSource/lang/Throwable.java</url>
+          <line>787</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

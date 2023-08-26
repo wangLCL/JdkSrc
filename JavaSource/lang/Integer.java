@@ -74,7 +74,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * The {@code Class} instance representing the primitive type
      * {@code int}.
      *
-     * 类型
+     * 原始类型
      *
      * @since   JDK1.1
      */
