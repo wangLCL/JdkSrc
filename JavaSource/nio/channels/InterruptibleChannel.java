@@ -56,6 +56,7 @@ import java.io.IOException;
  * if, it implements this interface.  This can be tested at runtime, if
  * necessary, via the <tt>instanceof</tt> operator.
  *
+ * 中断通道
  *
  * @author Mark Reinhold
  * @author JSR-51 Expert Group

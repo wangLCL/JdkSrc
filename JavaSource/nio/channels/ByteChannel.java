@@ -36,6 +36,8 @@ import java.io.IOException;
  * @author Mark Reinhold
  * @author JSR-51 Expert Group
  * @since 1.4
+ *
+ * byte通道是可以进行复写的通道
  */
 
 public interface ByteChannel

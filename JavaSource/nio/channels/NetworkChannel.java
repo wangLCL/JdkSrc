@@ -48,6 +48,12 @@ import java.io.IOException;
  * chained. Implementations of this interface should specialize the return type
  * so that method invocations on the implementation class can be chained.
  *
+ *
+ * 网络通道
+ * bind用于套接字绑定到本地address
+ * 所述getLocalAddress方法返回套接字绑定到地址， setOption种getOption方法用于设置和查
+ * 询套接字选项。
+ * 此接口的实现应指定其支持的套接字选项。
  * @since 1.7
  */
 
@@ -62,6 +68,8 @@ public interface NetworkChannel
      * bound until the channel is closed. If the {@code local} parameter has the
      * value {@code null} then the socket will be bound to an address that is
      * assigned automatically.
+     *
+     * 这个方法是将套接字与本地建立关联，直到断开链接
      *
      * @param   local
      *          The address to bind the socket, or {@code null} to bind the socket

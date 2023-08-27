@@ -48,6 +48,8 @@ import java.io.Closeable;
  * and implement this interface.
  *
  *
+ * 通道一般诸如硬件/文件等 可以进行读写操作的
+ *
  * @author Mark Reinhold
  * @author JSR-51 Expert Group
  * @since 1.4

@@ -57,10 +57,12 @@ import sun.misc.Unsafe;
  * <p> Mapped byte buffers otherwise behave no differently than ordinary direct
  * byte buffers. </p>
  *
+ * 基于内存的直接字节缓存区 元素是存储在磁盘上的
  *
  * @author Mark Reinhold
  * @author JSR-51 Expert Group
  * @since 1.4
+ *
  */
 
 public abstract class MappedByteBuffer
@@ -74,6 +76,7 @@ public abstract class MappedByteBuffer
 
     // For mapped buffers, a FileDescriptor that may be used for mapping
     // operations if valid; null if the buffer is not mapped.
+    //文件句柄
     private final FileDescriptor fd;
 
     // This should only be invoked by the DirectByteBuffer constructors
@@ -108,6 +111,7 @@ public abstract class MappedByteBuffer
         return address - mappingOffset;
     }
 
+    //容量+偏移位置
     private long mappingLength(long mappingOffset) {
         return (long)capacity() + mappingOffset;
     }
@@ -150,14 +154,19 @@ public abstract class MappedByteBuffer
      * method may cause some number of page faults and I/O operations to
      * occur. </p>
      *
+     *  该方法的主要作用是为提前加载文件埋单，以便后续的访问速度可以尽可能的快。
+     *
+     *     为一个文件建立虚拟内存映射后，文件数据往往不会因此从磁盘读取到内存（这取决于操作系统）。
+     *     该过程类似打开一个文件：文件先被定位，然后一个文件句柄会被创建，随后通过文件句柄来访问文件数据。
+     *
      * @return  This buffer
      */
     public final MappedByteBuffer load() {
-        checkMapped();
+        checkMapped(); //检查据滨海是不是为null
         if ((address == 0) || (capacity() == 0))
             return this;
-        long offset = mappingOffset();
-        long length = mappingLength(offset);
+        long offset = mappingOffset(); //偏移位置
+        long length = mappingLength(offset); //容量+偏移等于长度
         load0(mappingAddress(offset), length);
 
         // Read a byte from each page to bring it into memory. A checksum

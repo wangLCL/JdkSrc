@@ -48,11 +48,24 @@ import sun.nio.ch.FileChannelImpl;
 public
 class FileInputStream extends InputStream
 {
-    /* File Descriptor - handle to the open file */
+    /**
+     *  File Descriptor - handle to the open file
+     *
+     *  文件描述符
+     */
     private final FileDescriptor fd;
 
+    /**
+     * 当前输入流关联的通道，调用getChannel()后才会对其初始化
+     *
+     * 1.当前输入流的通道（起始通道能干啥呢）
+     * 2.在调用getChannel之后才会进行初始化
+     */
     private FileChannel channel = null;
 
+    /**
+     * 关闭锁
+     */
     private final Object closeLock = new Object();
     private volatile boolean closed = false;
 
@@ -82,6 +95,8 @@ class FileInputStream extends InputStream
      *               <code>checkRead</code> method denies read access
      *               to the file.
      * @see        java.lang.SecurityManager#checkRead(java.lang.String)
+     *
+     * 文件名字
      */
     public FileInputStream(String name) throws FileNotFoundException {
         this(name != null ? new File(name) : null);
@@ -113,6 +128,8 @@ class FileInputStream extends InputStream
      *               <code>checkRead</code> method denies read access to the file.
      * @see        java.io.File#getPath()
      * @see        java.lang.SecurityManager#checkRead(java.lang.String)
+     *
+     * 打开文件
      */
     public FileInputStream(File file) throws FileNotFoundException {
         String name = (file != null ? file.getPath() : null);
@@ -126,6 +143,7 @@ class FileInputStream extends InputStream
         if (file.isInvalid()) {
             throw new FileNotFoundException("Invalid file path");
         }
+        //文件描述符
         fd = new FileDescriptor();
         fd.attach(this);
         open(name);

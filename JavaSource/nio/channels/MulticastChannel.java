@@ -116,6 +116,7 @@ import java.net.StandardSocketOptions;      // javadoc
  *     MembershipKey key = dc.join(group, ni);
  * </pre>
  *
+ * 支持互联网协议（IP）组播的网络通道
  * @since 1.7
  */
 

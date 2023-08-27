@@ -48,6 +48,8 @@ import java.io.IOException;
  *
  * @since 1.7
  * @see java.nio.file.Files#newByteChannel
+ *
+ * 允许更改位置的通道， 可以读写可变长度的字节
  */
 
 public interface SeekableByteChannel
@@ -90,6 +92,8 @@ public interface SeekableByteChannel
      *          If this channel is closed
      * @throws  IOException
      *          If some other I/O error occurs
+     *
+     *  返回通道的位置
      */
     long position() throws IOException;
 
@@ -122,6 +126,7 @@ public interface SeekableByteChannel
      * @throws  IOException
      *          If some other I/O error occurs
      */
+    //设置通道的位置
     SeekableByteChannel position(long newPosition) throws IOException;
 
     /**
@@ -134,6 +139,7 @@ public interface SeekableByteChannel
      * @throws  IOException
      *          If some other I/O error occurs
      */
+//    返回实体当前的大小
     long size() throws IOException;
 
     /**
@@ -150,6 +156,8 @@ public interface SeekableByteChannel
      * connected to an entity, typically a file, opened with the {@link
      * java.nio.file.StandardOpenOption#APPEND APPEND} option.
      *
+     *
+     * 将实体进行截断为指定大小
      * @param  size
      *         The new size, a non-negative byte count
      *
@@ -163,6 +171,7 @@ public interface SeekableByteChannel
      *          If the new size is negative
      * @throws  IOException
      *          If some other I/O error occurs
+     *
      */
     SeekableByteChannel truncate(long size) throws IOException;
 }

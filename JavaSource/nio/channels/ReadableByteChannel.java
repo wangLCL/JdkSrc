@@ -43,6 +43,10 @@ import java.nio.ByteBuffer;
  * @author Mark Reinhold
  * @author JSR-51 Expert Group
  * @since 1.4
+ *
+ * 在任何给定的时间，只有一个可读通道上的读操作才能进行。 如果一个线程在通道上启动读取操作，
+ * 那么尝试启动另一个读取操作的任何其他线程将阻塞，直到第一个操作完成。
+ * 其他类型的I / O操作是否可以与读取操作同时进行取决于通道的类型。
  */
 
 public interface ReadableByteChannel extends Channel {
@@ -102,6 +106,22 @@ public interface ReadableByteChannel extends Channel {
      *
      * @throws  IOException
      *          If some other I/O error occurs
+     *
+     * 从该通道读取到给定缓冲区的字节序列。
+     * 尝试从通道读取r个字节，其中r是缓冲区中剩余的字节数，即dst.remaining() ，
+     * 在此方法被调用的时刻。
+     *
+     * 假设长度为n的字节序列被读取，其中0 <= n <= r 。 该字节序列将被转移到缓冲器，
+     * 使得序列中的第一个字节是在索引p和最后一个字节是在索引p + -Ñ1，其中p是该缓冲区的
+     * 在调用此方法的瞬间位置。 一旦返回缓冲区的位置将等于p + n ; 其限制将不会改变。
+     *
+     * 读取操作可能不会填充缓冲区，实际上它可能不会读取任何字节。 是否这样做取决于渠道
+     * 的性质和状态。 例如，非阻塞模式的套接字通道不能再读取比从套接字的输入缓冲区可以立即获
+     * 得的任何字节数; 类似地，文件通道不能读取比保留在文件中的任何更多的字节。 但是，如
+     * 果通道处于阻塞模式，并且缓冲区中至少剩余一个字节，则该方法将被阻塞，直到读取至少一个字节为止。
+     *
+     * 可以随时调用此方法。 但是，如果另一个线程已经在该通道上启动了读取操作，那么此方法
+     * 的调用将阻塞，直到第一个操作完成。
      */
     public int read(ByteBuffer dst) throws IOException;
 

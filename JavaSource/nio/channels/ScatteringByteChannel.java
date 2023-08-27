@@ -41,6 +41,7 @@ import java.nio.ByteBuffer;
  * GatheringByteChannel} interface.  </p>
  *
  *
+ * 读取字符
  * @author Mark Reinhold
  * @author JSR-51 Expert Group
  * @since 1.4
