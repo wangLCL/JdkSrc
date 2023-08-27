@@ -81,6 +81,10 @@ import java.util.stream.StreamSupport;
  * @since 1.7
  * @author Doug Lea
  */
+
+/**
+ * 多线程下有更好的性能
+ */
 public class ThreadLocalRandom extends Random {
     /*
      * This class implements the java.util.Random API (and subclasses

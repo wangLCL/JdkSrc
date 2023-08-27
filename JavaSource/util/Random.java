@@ -73,6 +73,12 @@ import sun.misc.Unsafe;
  * @author  Frank Yellin
  * @since   1.0
  */
+
+/**
+ * 伪随机 ：多线程  性能欠佳
+ *
+ * 支持自定义种子  和   内置种子
+ */
 public
 class Random implements java.io.Serializable {
     /** use serialVersionUID from JDK 1.1 for interoperability */
@@ -987,6 +993,7 @@ class Random implements java.io.Serializable {
                  false);
     }
 
+    //split一般时流运算
     /**
      * Spliterator for int streams.  We multiplex the four int
      * versions into one class by treating a bound less than origin as
@@ -1007,12 +1014,17 @@ class Random implements java.io.Serializable {
             this.origin = origin; this.bound = bound;
         }
 
+        /**
+         * 尝试拆分   对半分
+         * @return
+         */
         public RandomIntsSpliterator trySplit() {
             long i = index, m = (i + fence) >>> 1;
             return (m <= i) ? null :
                    new RandomIntsSpliterator(rng, i, index = m, origin, bound);
         }
 
+        //数量
         public long estimateSize() {
             return fence - index;
         }
@@ -1024,10 +1036,11 @@ class Random implements java.io.Serializable {
 
         public boolean tryAdvance(IntConsumer consumer) {
             if (consumer == null) throw new NullPointerException();
+            //
             long i = index, f = fence;
             if (i < f) {
                 consumer.accept(rng.internalNextInt(origin, bound));
-                index = i + 1;
+                index = i + 1; // 数量
                 return true;
             }
             return false;
@@ -1158,6 +1171,7 @@ class Random implements java.io.Serializable {
         }
     }
 
+    //序列化 部分
     /**
      * Serializable fields for Random.
      *
@@ -1221,6 +1235,8 @@ class Random implements java.io.Serializable {
                 (Random.class.getDeclaredField("seed"));
         } catch (Exception ex) { throw new Error(ex); }
     }
+
+    //重置种子
     private void resetSeed(long seedVal) {
         unsafe.putObjectVolatile(this, seedOffset, new AtomicLong(seedVal));
     }

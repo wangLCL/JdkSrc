@@ -87,6 +87,14 @@ import java.util.stream.DoubleStream;
  * @author  Doug Lea
  * @since   1.8
  */
+/**
+ * 种子是一直以一个间距增加的，这个只是线性的， 然后在对其求随机
+ *
+ * 自己设置种子意义感觉不大
+ *
+ *
+ * 这个随机，如果间距写为0 ，那么每次值都是一样的
+ */
 public final class SplittableRandom {
 
     /*
