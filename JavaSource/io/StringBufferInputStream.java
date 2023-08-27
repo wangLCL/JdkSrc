@@ -47,6 +47,8 @@ public
 class StringBufferInputStream extends InputStream {
     /**
      * The string from which bytes are read.
+     *
+     * 存储字符  如果是文件，那么就是文件流
      */
     protected String buffer;
 
@@ -54,6 +56,8 @@ class StringBufferInputStream extends InputStream {
      * The index of the next character to read from the input stream buffer.
      *
      * @see        java.io.StringBufferInputStream#buffer
+     *
+     * 读取到的位置
      */
     protected int pos;
 
@@ -61,6 +65,8 @@ class StringBufferInputStream extends InputStream {
      * The number of valid characters in the input stream buffer.
      *
      * @see        java.io.StringBufferInputStream#buffer
+     *
+     * 一共有多少
      */
     protected int count;
 
@@ -87,6 +93,8 @@ class StringBufferInputStream extends InputStream {
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
+     *
+     * 读取字符，如果读取结束就返回-1
      */
     public synchronized int read() {
         return (pos < count) ? (buffer.charAt(pos++) & 0xFF) : -1;
@@ -115,6 +123,7 @@ class StringBufferInputStream extends InputStream {
                    ((off + len) > b.length) || ((off + len) < 0)) {
             throw new IndexOutOfBoundsException();
         }
+        //读取结束
         if (pos >= count) {
             return -1;
         }
@@ -157,6 +166,8 @@ class StringBufferInputStream extends InputStream {
      *
      * @return     the value of <code>count&nbsp;-&nbsp;pos</code>, which is the
      *             number of bytes remaining to be read from the input buffer.
+     *
+     * 是否有效  是否到底末尾
      */
     public synchronized int available() {
         return count - pos;
@@ -165,6 +176,8 @@ class StringBufferInputStream extends InputStream {
     /**
      * Resets the input stream to begin reading from the first character
      * of this input stream's underlying buffer.
+     *
+     * reset之后从开始进行读取
      */
     public synchronized void reset() {
         pos = 0;

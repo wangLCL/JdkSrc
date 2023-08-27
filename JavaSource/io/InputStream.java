@@ -34,6 +34,10 @@ package java.io;
  * <p> Applications that need to define a subclass of <code>InputStream</code>
  * must always provide a method that returns the next byte of input.
  * 子类需要实现读取下一个字节的方法
+ * 字节输入流，可以从中读取数据  从文件/远程读取
+ *
+ * 这个类提供了默认读取的最大跳过大小，读取字符，读取一大堆字符，将通道中的数据
+ * 读到数组中
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
@@ -106,6 +110,8 @@ public abstract class InputStream implements Closeable {
      * if some other I/O error occurs.
      * @exception  NullPointerException  if <code>b</code> is <code>null</code>.
      * @see        java.io.InputStream#read(byte[], int, int)
+     *
+     * 将数据读取到数组中
      */
     public int read(byte b[]) throws IOException {
         return read(b, 0, b.length);
