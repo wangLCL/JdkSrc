@@ -80,6 +80,7 @@ public abstract class MappedByteBuffer
     private final FileDescriptor fd;
 
     // This should only be invoked by the DirectByteBuffer constructors
+    //mark标识位置   pos读取或者是写入的位置  lim最大的位置   cap大小（容量）
     //
     MappedByteBuffer(int mark, int pos, int lim, int cap, // package-private
                      FileDescriptor fd)
@@ -102,11 +103,18 @@ public abstract class MappedByteBuffer
     // Returns the distance (in bytes) of the buffer from the page aligned address
     // of the mapping. Computed each time to avoid storing in every direct buffer.
     private long mappingOffset() {
+        //得到的是没页的大小
         int ps = Bits.pageSize();
+        //地址每页取模  应该就是每一页读取的位置
         long offset = address % ps;
         return (offset >= 0) ? offset : (ps + offset);
     }
 
+    /**
+     * 这个我不是很清除，好像是大端和小端？？？？？？？？？？？？？
+     * @param mappingOffset
+     * @return
+     */
     private long mappingAddress(long mappingOffset) {
         return address - mappingOffset;
     }
@@ -162,7 +170,7 @@ public abstract class MappedByteBuffer
      * @return  This buffer
      */
     public final MappedByteBuffer load() {
-        checkMapped(); //检查据滨海是不是为null
+        checkMapped(); //检查句柄是不是为null
         if ((address == 0) || (capacity() == 0))
             return this;
         long offset = mappingOffset(); //偏移位置

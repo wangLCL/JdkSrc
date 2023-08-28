@@ -27,12 +27,19 @@ package java.nio;
 
 
 // ## If the sequence is a string, use reflection to share its array
+//找个简单的看看
 
 class StringCharBuffer                                  // package-private
     extends CharBuffer
 {
     CharSequence str;
 
+    /**
+     *
+     * @param s 缓存区内容
+     * @param start 开始的位置
+     * @param end 结束的位置
+     */
     StringCharBuffer(CharSequence s, int start, int end) { // package-private
         super(-1, start, end, s.length());
         int n = s.length();

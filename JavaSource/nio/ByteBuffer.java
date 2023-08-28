@@ -267,7 +267,7 @@ public abstract class ByteBuffer
     // These fields are declared here rather than in Heap-X-Buffer in order to
     // reduce the number of virtual method invocations needed to access these
     // values, which is especially costly when coding small buffers.
-    //数组实现
+    //数组实现  字节数组
     final byte[] hb;                  // Non-null only for heap buffers
     //偏移量
     final int offset;
@@ -334,8 +334,10 @@ public abstract class ByteBuffer
      *          If the <tt>capacity</tt> is a negative integer
      */
     public static ByteBuffer allocate(int capacity) {
+        //开辟空间
         if (capacity < 0)
             throw new IllegalArgumentException();
+        //栈内存
         return new HeapByteBuffer(capacity, capacity);
     }
 
@@ -699,6 +701,7 @@ public abstract class ByteBuffer
         if (length > remaining())
             throw new BufferUnderflowException();
         int end = offset + length;
+        //得到范围
         for (int i = offset; i < end; i++)
             dst[i] = get();
         return this;
@@ -840,6 +843,7 @@ public abstract class ByteBuffer
         if (length > remaining())
             throw new BufferOverflowException();
         int end = offset + length;
+        //得到开始和结束
         for (int i = offset; i < end; i++)
             this.put(src[i]);
         return this;
@@ -1169,8 +1173,10 @@ public abstract class ByteBuffer
      *           given object
      */
     public boolean equals(Object ob) {
+        //1.相同对象
         if (this == ob)
             return true;
+        //2.ByteBuffer类型
         if (!(ob instanceof ByteBuffer))
             return false;
         ByteBuffer that = (ByteBuffer)ob;
@@ -1180,9 +1186,12 @@ public abstract class ByteBuffer
         int thatLim = that.limit();
         int thisRem = thisLim - thisPos;
         int thatRem = thatLim - thatPos;
+        //3.比较大小
         if (thisRem < 0 || thisRem != thatRem)
             return false;
-        for (int i = thisLim - 1, j = thatLim - 1; i >= thisPos; i--, j--)
+        //4.比较值
+        for (int i = thisLim - 1, j = thatLim - 1;
+             i >= thisPos; i--, j--)
             if (!equals(this.get(i), that.get(j)))
                 return false;
         return true;
@@ -1228,11 +1237,13 @@ public abstract class ByteBuffer
         if (length < 0)
             return -1;
         int n = thisPos + Math.min(thisRem, thatRem);
+        //找到第一个不相同的返回
         for (int i = thisPos, j = thatPos; i < n; i++, j++) {
             int cmp = compare(this.get(i), that.get(j));
             if (cmp != 0)
                 return cmp;
         }
+        //都一样，就比较大小
         return thisRem - thatRem;
     }
 
