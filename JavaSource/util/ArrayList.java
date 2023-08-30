@@ -851,6 +851,7 @@ public class ArrayList<E> extends AbstractList<E>
      */
     private class Itr implements Iterator<E> {
         int cursor;       // index of next element to return
+        //最后一次返回的下标
         int lastRet = -1; // index of last element returned; -1 if no such
         int expectedModCount = modCount;
 
