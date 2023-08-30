@@ -88,6 +88,8 @@ class Random implements java.io.Serializable {
      * The internal state associated with this pseudorandom number generator.
      * (The specs for the methods in this class describe the ongoing
      * computation of this value.)
+     *
+     * 种子
      */
     private final AtomicLong seed;
 
@@ -203,9 +205,12 @@ class Random implements java.io.Serializable {
      */
     protected int next(int bits) {
         long oldseed, nextseed;
+        //种子
         AtomicLong seed = this.seed;
         do {
+            //得到老值
             oldseed = seed.get();
+            //计算出新值
             nextseed = (oldseed * multiplier + addend) & mask;
         } while (!seed.compareAndSet(oldseed, nextseed));
         return (int)(nextseed >>> (48 - bits));

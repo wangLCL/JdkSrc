@@ -111,9 +111,11 @@ import java.util.regex.PatternSyntaxException;
 public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence {
     /** The value is used for character storage. */
+    /*使用数组存储*/
     private final char value[];
 
     /** Cache the hash code for the string */
+    /*hash值*/
     private int hash; // Default to 0
 
     /** use serialVersionUID from JDK 1.0.2 for interoperability */
@@ -133,6 +135,8 @@ public final class String
      * Initializes a newly created {@code String} object so that it represents
      * an empty character sequence.  Note that use of this constructor is
      * unnecessary since Strings are immutable.
+     *
+     * 如果每个给值，那么value为new char[0];
      */
     public String() {
         this.value = new char[0];
@@ -144,6 +148,8 @@ public final class String
      * newly created string is a copy of the argument string. Unless an
      * explicit copy of {@code original} is needed, use of this constructor is
      * unnecessary since Strings are immutable.
+     *
+     * 带有参数将值和hash传递
      *
      * @param  original
      *         A {@code String}
@@ -159,6 +165,7 @@ public final class String
      * contents of the character array are copied; subsequent modification of
      * the character array does not affect the newly created string.
      *
+     * char类型进行复制（否则外部更改会存在问题）
      * @param  value
      *         The initial value of the string
      */
@@ -604,6 +611,8 @@ public final class String
      * The length is equal to the number of <a href="Character.html#unicode">Unicode
      * code units</a> in the string.
      *
+     * 数组大小就是字符串的长度
+     *
      * @return  the length of the sequence of characters represented by this
      *          object.
      */
@@ -633,6 +642,8 @@ public final class String
      * <p>If the {@code char} value specified by the index is a
      * <a href="Character.html#unicode">surrogate</a>, the surrogate
      * value is returned.
+     *
+     * charAt读取数组的某位
      *
      * @param      index   the index of the {@code char} value.
      * @return     the {@code char} value at the specified index of this string.
@@ -691,6 +702,8 @@ public final class String
      * returned. If the {@code char} value at {@code index -
      * 1} is an unpaired low-surrogate or a high-surrogate, the
      * surrogate value is returned.
+     *
+     * 得到指定位置的code
      *
      * @param     index the index following the code point that should be returned
      * @return    the Unicode code point value before the given index.
@@ -1130,6 +1143,8 @@ public final class String
      * this.length()-anotherString.length()
      * </pre></blockquote>
      *
+     * 比较，计算出最短的，然后遇到不相同的，直接求值
+     *
      * @param   anotherString   the {@code String} to be compared.
      * @return  the value {@code 0} if the argument string is equal to
      *          this string; a value less than {@code 0} if this string
@@ -1393,6 +1408,7 @@ public final class String
         int po = 0;
         int pc = prefix.value.length;
         // Note: toffset might be near -1>>>1.
+        //如果pre大于字符串的长度，就直接返回false
         if ((toffset < 0) || (toffset > value.length - pc)) {
             return false;
         }
@@ -1852,15 +1868,19 @@ public final class String
         /*
          * Check arguments; return immediately where possible. For
          * consistency, don't check for null str.
+         *
+         * 原来的小于目标 就直接返回找不到
          */
         int rightIndex = sourceCount - targetCount;
         if (fromIndex < 0) {
             return -1;
         }
+        //这个是为了防止后面的长度不够
         if (fromIndex > rightIndex) {
             fromIndex = rightIndex;
         }
         /* Empty string always matches. */
+        //目标为空串
         if (targetCount == 0) {
             return fromIndex;
         }
@@ -2015,6 +2035,7 @@ public final class String
         if (otherLen == 0) {
             return this;
         }
+//        将值都写入到数组中   重新创建一个新的字符串
         int len = value.length;
         char buf[] = Arrays.copyOf(value, len + otherLen);
         str.getChars(buf, len);
