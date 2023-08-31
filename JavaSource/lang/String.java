@@ -2076,7 +2076,7 @@ public final class String
             int len = value.length;
             int i = -1;
             char[] val = value; /* avoid getfield opcode */
-
+            //查找是否存在oldchar
             while (++i < len) {
                 if (val[i] == oldChar) {
                     break;
@@ -2866,6 +2866,8 @@ public final class String
      * This method may be used to trim whitespace (as defined above) from
      * the beginning and end of a string.
      *
+     * 前后取消空格
+     *
      * @return  A string whose value is this string, with any leading and trailing white
      *          space removed, or this string if it has no leading or
      *          trailing white space.
@@ -2895,6 +2897,8 @@ public final class String
 
     /**
      * Converts this string to a new character array.
+     *
+     * 变为char， 自身的char是私有的
      *
      * @return  a newly allocated character array whose length is the length
      *          of this string and whose contents are initialized to contain
@@ -3065,6 +3069,8 @@ public final class String
     public static String copyValueOf(char data[]) {
         return new String(data);
     }
+
+    //valueof根据自己的类型，调用不用的方法。数值类型的调用包装类型的toString方法
 
     /**
      * Returns the string representation of the {@code boolean} argument.
