@@ -1327,6 +1327,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         }
     }
 
+    /**
+     * 遍历桶，遍历链表  执行操作
+     * @param function the function to apply to each entry
+     */
     @Override
     public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
         Node<K,V>[] tab;
@@ -1370,6 +1374,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
     // These methods are also used when serializing HashSets
     final float loadFactor() { return loadFactor; }
+
+    //容量是 筒的个数
     final int capacity() {
         return (table != null) ? table.length :
             (threshold > 0) ? threshold :
@@ -1457,6 +1463,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             current = next = null;
             index = 0;
             if (t != null && size > 0) { // advance to first entry
+                //遍历数组，找到不为null的
                 do {} while (index < t.length && (next = t[index++]) == null);
             }
         }
@@ -1465,6 +1472,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             return next != null;
         }
 
+        //返回当前的，继续找下一个
         final Node<K,V> nextNode() {
             Node<K,V>[] t;
             Node<K,V> e = next;
@@ -1811,6 +1819,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     void afterNodeRemoval(Node<K,V> p) { }
 
     // Called only from writeObject, to ensure compatible ordering.
+    // table中存在值，遍历table，将值和value写入流中
     void internalWriteEntries(java.io.ObjectOutputStream s) throws IOException {
         Node<K,V>[] tab;
         if (size > 0 && (tab = table) != null) {
@@ -1830,6 +1839,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Entry for Tree bins. Extends LinkedHashMap.Entry (which in turn
      * extends Node) so can be used as extension of either regular or
      * linked node.
+     *
+     * 二叉树
      */
     static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
         TreeNode<K,V> parent;  // red-black tree links

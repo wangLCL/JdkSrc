@@ -127,6 +127,8 @@ public final class String
      * A String instance is written into an ObjectOutputStream according to
      * <a href="{@docRoot}/../platform/serialization/spec/output.html">
      * Object Serialization Specification, Section 6.2, "Stream Elements"</a>
+     *
+     * 用于指定哪些字段可以实例化
      */
     private static final ObjectStreamField[] serialPersistentFields =
         new ObjectStreamField[0];
@@ -3155,15 +3157,21 @@ public final class String
 
     /**
      * Returns a canonical representation for the string object.
+     *
+     * 返回字符串
      * <p>
      * A pool of strings, initially empty, is maintained privately by the
      * class {@code String}.
+     *
+     * 字符串池，初始化为空，
      * <p>
      * When the intern method is invoked, if the pool already contains a
      * string equal to this {@code String} object as determined by
      * the {@link #equals(Object)} method, then the string from the pool is
      * returned. Otherwise, this {@code String} object is added to the
      * pool and a reference to this {@code String} object is returned.
+     *
+     * 当调用，池中存在就返回池中的值，  否则就将值放入，并返回
      * <p>
      * It follows that for any two strings {@code s} and {@code t},
      * {@code s.intern() == t.intern()} is {@code true}
