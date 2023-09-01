@@ -35,6 +35,15 @@ import java.util.function.Consumer;
  * the "for-each loop" statement. See
  *
  * 实现这个方法  可以进行for - each循环
+ * 常作为集合的遍历接口
+ *
+ * 内部迭代器可以进行for each ，如果没有外部也是可以的
+ *
+ * 迭代器包含：
+ * 1.外部迭代器iterator
+ * 2.枚举迭代器
+ * 3.spliterator:流迭代器
+ *
  * <strong>
  * <a href="{@docRoot}/../technotes/guides/language/foreach.html">For-each Loop</a>
  * </strong>
@@ -47,7 +56,7 @@ import java.util.function.Consumer;
 public interface Iterable<T> {
     /**
      * Returns an iterator over elements of type {@code T}.
-     * 返回一个迭代器
+     * 返回一个外部迭代器
      * @return an Iterator.
      */
     Iterator<T> iterator();
@@ -79,6 +88,7 @@ public interface Iterable<T> {
      * @throws NullPointerException if the specified action is null
      * @since 1.8
      */
+    //流式遍历
     default void forEach(Consumer<? super T> action) {
         Objects.requireNonNull(action);
         for (T t : this) {
@@ -107,6 +117,7 @@ public interface Iterable<T> {
      * {@code Iterable}.
      * @since 1.8
      */
+    //分割作为流式处理
     default Spliterator<T> spliterator() {
         return Spliterators.spliteratorUnknownSize(iterator(), 0);
     }

@@ -51,18 +51,26 @@ import java.util.function.Consumer;
  * @see Iterable
  * @since 1.2
  */
+
+/**
+ * 外部迭代器  可以进行遍历  移除
+ * @param <E>
+ */
 public interface Iterator<E> {
     /**
      * Returns {@code true} if the iteration has more elements.
      * (In other words, returns {@code true} if {@link #next} would
      * return an element rather than throwing an exception.)
      *
+     * 是否存在下一个
      * @return {@code true} if the iteration has more elements
      */
     boolean hasNext();
 
     /**
      * Returns the next element in the iteration.
+     *
+     * 返回下一个值
      *
      * @return the next element in the iteration
      * @throws NoSuchElementException if the iteration has no more elements
@@ -106,10 +114,13 @@ public interface Iterator<E> {
      *         action.accept(next());
      * }</pre>
      *
+     *
+     *
      * @param action The action to be performed for each element
      * @throws NullPointerException if the specified action is null
      * @since 1.8
      */
+//    流式遍历。遍历每个元素，并对其执行相应的择取操作
     default void forEachRemaining(Consumer<? super E> action) {
         Objects.requireNonNull(action);
         while (hasNext())

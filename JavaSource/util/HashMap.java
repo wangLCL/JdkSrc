@@ -363,6 +363,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      */
     static final int hash(Object key) {
         int h;
+        //高位参与hash
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
@@ -373,6 +374,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     static Class<?> comparableClassFor(Object x) {
         if (x instanceof Comparable) {
             Class<?> c; Type[] ts, as; Type t; ParameterizedType p;
+            //string.class
             if ((c = x.getClass()) == String.class) // bypass checks
                 return c;
             if ((ts = c.getGenericInterfaces()) != null) {
@@ -422,16 +424,20 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * (We also tolerate length zero in some operations to allow
      * bootstrapping mechanics that are currently not needed.)
      */
-    transient Node<K,V>[] table;
+    transient Node<K,V>[] table; //存储  节点数组
 
     /**
      * Holds cached entrySet(). Note that AbstractMap fields are used
      * for keySet() and values().
+     *
+     * 缓存   父类的用来得到key和value
      */
     transient Set<Map.Entry<K,V>> entrySet;
 
     /**
      * The number of key-value mappings contained in this map.
+     *
+     * 多少个key-value
      */
     transient int size;
 
@@ -447,6 +453,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     /**
      * The next size value at which to resize (capacity * load factor).
      *
+     * 要调整大小的下一个大小值（容量*负载系数）。
+     *
      * @serial
      */
     // (The javadoc description is true upon serialization.
@@ -457,7 +465,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
     /**
      * The load factor for the hash table.
-     *
+     * hash负载因子
      * @serial
      */
     final float loadFactor;
@@ -667,7 +675,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         Node<K,V>[] tab; Node<K,V> p; int n, i;
         //tab为null,那么就resize
         if ((tab = table) == null || (n = tab.length) == 0)
+            //resize创建数组
             n = (tab = resize()).length;
+        //桶为空，直接放入
         if ((p = tab[i = (n - 1) & hash]) == null)
             tab[i] = newNode(hash, key, value, null);
         else {

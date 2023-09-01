@@ -46,6 +46,8 @@ package java.util;
  * has shorter method names.  New implementations should consider using
  * Iterator in preference to Enumeration.
  *
+ * 可以看作外部迭代器，但是不可移除
+ *
  * @see     java.util.Iterator
  * @see     java.io.SequenceInputStream
  * @see     java.util.Enumeration#nextElement()
@@ -61,7 +63,7 @@ package java.util;
 public interface Enumeration<E> {
     /**
      * Tests if this enumeration contains more elements.
-     *
+     *是否存在未遍历元素
      * @return  <code>true</code> if and only if this enumeration object
      *           contains at least one more element to provide;
      *          <code>false</code> otherwise.
