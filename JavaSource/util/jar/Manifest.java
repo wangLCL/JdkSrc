@@ -42,6 +42,8 @@ import java.util.Iterator;
  * <a href="../../../../technotes/guides/jar/jar.html">
  * Manifest format specification</a>.
  *
+ * mainfest文件
+ *
  * @author  David Connelly
  * @see     Attributes
  * @since   1.2

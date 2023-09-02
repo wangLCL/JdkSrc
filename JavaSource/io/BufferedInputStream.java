@@ -160,7 +160,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     private InputStream getInIfOpen() throws IOException {
         //关闭将in设置为null
-        InputStream input = in;
+        InputStream input = in; //设置输入流
         if (input == null)
             throw new IOException("Stream closed");
         return input;
@@ -172,7 +172,7 @@ class BufferedInputStream extends FilterInputStream {
      */
     private byte[] getBufIfOpen() throws IOException {
         //close方法将buffer设置为null
-        byte[] buffer = buf;
+        byte[] buffer = buf; //设置buffer
         if (buffer == null)
             throw new IOException("Stream closed");
         return buffer;
@@ -219,11 +219,14 @@ class BufferedInputStream extends FilterInputStream {
      * hence pos > count.
      */
     private void fill() throws IOException {
+        //得到 buffer
         byte[] buffer = getBufIfOpen();
         if (markpos < 0)
             pos = 0;            /* no mark: throw away the buffer */
         else if (pos >= buffer.length)  /* no room left in buffer */
+//            读取到了最后
             if (markpos > 0) {  /* can throw away early part of the buffer */
+                /*如果读取位置大于0  将buffer内容重置*/
                 int sz = pos - markpos;
                 System.arraycopy(buffer, markpos, buffer, 0, sz);
                 pos = sz;
@@ -274,6 +277,7 @@ class BufferedInputStream extends FilterInputStream {
             if (pos >= count)
                 return -1;
         }
+        //读取值
         return getBufIfOpen()[pos++] & 0xff;
     }
 

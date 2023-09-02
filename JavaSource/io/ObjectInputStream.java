@@ -213,6 +213,7 @@ public class ObjectInputStream
     private static final Object unsharedMarker = new Object();
 
     /** table mapping primitive type names to corresponding class objects */
+    /*原始类型映射表  这个和我之前写的一样*/
     private static final HashMap<String, Class<?>> primClasses
         = new HashMap<>(8, 1.0F);
     static {
@@ -1231,6 +1232,9 @@ public class ObjectInputStream
      * without violating security constraints: the subclass must not override
      * security-sensitive non-final methods, or else the
      * "enableSubclassImplementation" SerializablePermission is checked.
+     *
+     * *验证是否可以在不违反安全约束的情况下构造此实例（可能是子类）：子类不能覆盖安全敏感的非最终方法，
+     * 否则将检查“enableSubclassImplementation”SerializablePermission。
      */
     private void verifySubclass() {
         Class<?> cl = getClass();

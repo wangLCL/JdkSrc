@@ -101,6 +101,8 @@ public abstract class InputStream implements Closeable {
      * <p> The <code>read(b)</code> method for class <code>InputStream</code>
      * has the same effect as: <pre><code> read(b, 0, b.length) </code></pre>
      *
+     * 读取到的数值放入到数组中
+     *
      * @param      b   the buffer into which the data is read.
      * @return     the total number of bytes read into the buffer, or
      *             <code>-1</code> if there is no more data because the end of
@@ -184,7 +186,7 @@ public abstract class InputStream implements Closeable {
         } else if (len == 0) {
             return 0;
         }
-
+        //是否到底结尾
         int c = read();
         if (c == -1) {
             return -1;
@@ -235,7 +237,7 @@ public abstract class InputStream implements Closeable {
         if (n <= 0) {
             return 0;
         }
-
+        //最大和给给的值取最小的
         int size = (int)Math.min(MAX_SKIP_BUFFER_SIZE, remaining);
         byte[] skipBuffer = new byte[size];
         while (remaining > 0) {

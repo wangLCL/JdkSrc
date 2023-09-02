@@ -36,6 +36,8 @@ package java.io;
  * this class can be called after the stream has been closed without
  * generating an <tt>IOException</tt>.
  *
+ * 字节数组流  使用数组存储数据
+ *
  * @author  Arthur van Hoff
  * @see     java.io.StringBufferInputStream
  * @since   JDK1.0
@@ -135,7 +137,9 @@ class ByteArrayInputStream extends InputStream {
      * <code>-1</code> is returned.
      * <p>
      * This <code>read</code> method
-     * cannot block.
+     * cannot block.、
+     *
+     * 读取到数组结尾就返回-1
      *
      * @return  the next byte of data, or <code>-1</code> if the end of the
      *          stream has been reached.

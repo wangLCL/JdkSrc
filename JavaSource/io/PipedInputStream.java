@@ -43,6 +43,15 @@ package java.io;
  * thread that was providing data bytes to the connected
  * piped output stream is no longer alive.
  *
+ * 管道输入流应连接到管道输出流;
+ * 管道输入流然后提供写入管道输出流的任何数据字节。
+ * 典型地，数据被从一个读PipedInputStream对象由一个线程并且数据被写入到对应的
+ * PipedOutputStream通过一些其它线程。 不建议尝试从单个线程使用这两个对象，因为它可能会使线程死锁。
+ * 管道输入流包含一个缓冲区，在读取操作中将读取操作与限制内的操作相分离。
+ * 的管道被认为是broken如果正在提供的数据字节到连接的管道输出流中的线程不再存活。
+ *
+ * 理解为循环数组，使用不同的线程操作
+ *
  * @author  James Gosling
  * @see     java.io.PipedOutputStream
  * @since   JDK1.0
@@ -72,6 +81,7 @@ public class PipedInputStream extends InputStream {
 
     /**
      * The circular buffer into which incoming data is placed.
+     * 传入数据的循环缓存区
      * @since   JDK1.1
      */
     protected byte buffer[];
@@ -81,6 +91,8 @@ public class PipedInputStream extends InputStream {
      * next byte of data will be stored when received from the connected
      * piped output stream. <code>in&lt;0</code> implies the buffer is empty,
      * <code>in==out</code> implies the buffer is full
+     *
+     * //写入位置
      * @since   JDK1.1
      */
     protected int in = -1;
@@ -88,6 +100,8 @@ public class PipedInputStream extends InputStream {
     /**
      * The index of the position in the circular buffer at which the next
      * byte of data will be read by this piped input stream.
+     *
+     * 读取为位置
      * @since   JDK1.1
      */
     protected int out = 0;
@@ -158,6 +172,7 @@ public class PipedInputStream extends InputStream {
          if (pipeSize <= 0) {
             throw new IllegalArgumentException("Pipe Size <= 0");
          }
+         //管道循环缓存的大小
          buffer = new byte[pipeSize];
     }
 
@@ -200,14 +215,16 @@ public class PipedInputStream extends InputStream {
     protected synchronized void receive(int b) throws IOException {
         checkStateForReceive();
         writeSide = Thread.currentThread();
-        if (in == out)
+        if (in == out)//没数据 等
             awaitSpace();
         if (in < 0) {
             in = 0;
             out = 0;
         }
+        //数据写入
         buffer[in++] = (byte)(b & 0xFF);
         if (in >= buffer.length) {
+//            下标大于数组长度，就变为0，他是循环缓存区
             in = 0;
         }
     }

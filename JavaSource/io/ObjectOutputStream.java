@@ -2377,6 +2377,7 @@ public class ObjectOutputStream
     private static class ReplaceTable {
 
         /* maps object -> index */
+        /**/
         private final HandleTable htab;
         /* maps index -> replacement object */
         private Object[] reps;
@@ -2385,12 +2386,15 @@ public class ObjectOutputStream
          * Creates new ReplaceTable with given capacity and load factor.
          */
         ReplaceTable(int initialCapacity, float loadFactor) {
+            //tab可以扩容
             htab = new HandleTable(initialCapacity, loadFactor);
             reps = new Object[initialCapacity];
         }
 
         /**
          * Enters mapping from object to replacement object.
+         *
+         * key value
          */
         void assign(Object obj, Object rep) {
             int index = htab.assign(obj);
@@ -2426,6 +2430,7 @@ public class ObjectOutputStream
 
         /**
          * Increases table capacity.
+         *
          */
         private void grow() {
             Object[] newReps = new Object[(reps.length << 1) + 1];
@@ -2437,6 +2442,8 @@ public class ObjectOutputStream
     /**
      * Stack to keep debug information about the state of the
      * serialization process, for embedding in exception messages.
+     *
+     * 使用ArrayList存储值
      */
     private static class DebugTraceInfoStack {
         private final List<String> stack;

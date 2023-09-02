@@ -39,11 +39,16 @@ import java.util.Vector;
  * and so on, until end of file is reached
  * on the last of the contained input streams.
  *
+ * 输入流队列
+ * 读取方法是从一个Vector拿取内容，一个取完，取下一个输入流中取，是的数据形成一个队列
+ * 读取多个文件
+ *
  * @author  Author van Hoff
  * @since   JDK1.0
  */
 public
 class SequenceInputStream extends InputStream {
+    //枚举迭代
     Enumeration<? extends InputStream> e;
     InputStream in;
 

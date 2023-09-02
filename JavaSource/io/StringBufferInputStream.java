@@ -34,6 +34,9 @@ package java.io;
  * Only the low eight bits of each character in the string are used by
  * this class.
  *
+ * 使用一个string来存储数据。包含读取位置   以及总长度
+ * 所有的方法都是线程安全的，可以被继承
+ *
  * @author     Arthur van Hoff
  * @see        java.io.ByteArrayInputStream
  * @see        java.io.StringReader
@@ -95,6 +98,7 @@ class StringBufferInputStream extends InputStream {
      *             stream is reached.
      *
      * 读取字符，如果读取结束就返回-1
+     * 越界就是-1，对于string并不存储-1
      */
     public synchronized int read() {
         return (pos < count) ? (buffer.charAt(pos++) & 0xFF) : -1;
@@ -127,9 +131,12 @@ class StringBufferInputStream extends InputStream {
         if (pos >= count) {
             return -1;
         }
+        //如果要的长度，大于数组的长度就更新一下读取长度
+        //这个就是在使用数组读取数据的时候，最后数组中的数据可能并不会读满
         if (pos + len > count) {
             len = count - pos;
         }
+        //
         if (len <= 0) {
             return 0;
         }
@@ -145,6 +152,8 @@ class StringBufferInputStream extends InputStream {
     /**
      * Skips <code>n</code> bytes of input from this input stream. Fewer
      * bytes might be skipped if the end of the input stream is reached.
+     *
+     * 跳过但是不可以跳到结尾
      *
      * @param      n   the number of bytes to be skipped.
      * @return     the actual number of bytes skipped.

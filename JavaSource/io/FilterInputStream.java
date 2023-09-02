@@ -39,6 +39,8 @@ package java.io;
  * and may also provide additional methods
  * and fields.
  *
+ * 这类并不知道有什么用，调用的是最基础的方法
+ *
  * @author  Jonathan Payne
  * @since   JDK1.0
  */

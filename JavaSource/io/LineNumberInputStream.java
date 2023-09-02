@@ -38,6 +38,8 @@ package java.io;
  * The line number begins at {@code 0}, and is incremented by
  * {@code 1} when a {@code read} returns a newline character.
  *
+ * 读取行  读取到结尾就行+1
+ *
  * @author     Arthur van Hoff
  * @see        java.io.LineNumberReader
  * @since      JDK1.0
@@ -98,6 +100,7 @@ class LineNumberInputStream extends FilterInputStream {
         }
 
         switch (c) {
+            //回车
           case '\r':
             pushBack = in.read();
             if (pushBack == '\n') {
