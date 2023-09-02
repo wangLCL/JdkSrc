@@ -447,6 +447,8 @@ public class File
      * sequence.  If the pathname's name sequence is empty, then the empty
      * string is returned.
      *
+     * 最后一个分隔符进行分割
+     *
      * @return  The name of the file or directory denoted by this abstract
      *          pathname, or the empty string if this pathname's name sequence
      *          is empty
@@ -560,6 +562,9 @@ public class File
     /**
      * Returns the absolute form of this abstract pathname.  Equivalent to
      * <code>new&nbsp;File(this.{@link #getAbsolutePath})</code>.
+     *
+     *
+     * new File(路径)
      *
      * @return  The absolute abstract pathname denoting the same file or
      *          directory as this abstract pathname

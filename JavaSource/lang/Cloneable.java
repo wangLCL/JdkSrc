@@ -45,6 +45,7 @@ package java.lang;
  * fact that it implements this interface.  Even if the clone method is invoked
  * reflectively, there is no guarantee that it will succeed.
  *
+ * 克隆需要实现此接口
  * @author  unascribed
  * @see     java.lang.CloneNotSupportedException
  * @see     java.lang.Object#clone()

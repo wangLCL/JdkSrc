@@ -6,18 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/ByteArrayInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/ByteArrayInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/FileInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/FileInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/FilterInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/FilterInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/InputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/InputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/LineNumberInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/LineNumberInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/ObjectInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/ObjectInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/ObjectOutputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/ObjectOutputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/PipedInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/PipedInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/SequenceInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/SequenceInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/StringBufferInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/StringBufferInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/util/jar/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/jar/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/io/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Cloneable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Cloneable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693527761848</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="inputStream">
+      <option name="closed" value="true" />
+      <created>1693629529718</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1693629529718</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +227,8 @@
     <MESSAGE value="arraylist" />
     <MESSAGE value="string" />
     <MESSAGE value="hash" />
-    <option name="LAST_COMMIT_MESSAGE" value="hash" />
+    <MESSAGE value="inputStream" />
+    <option name="LAST_COMMIT_MESSAGE" value="inputStream" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

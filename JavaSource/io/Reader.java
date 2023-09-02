@@ -32,6 +32,7 @@ package java.io;
  * subclasses, however, will override some of the methods defined here in order
  * to provide higher efficiency, additional functionality, or both.
  *
+ * 读取字符流
  *
  * @see BufferedReader
  * @see   LineNumberReader
@@ -95,6 +96,7 @@ public abstract class Reader implements Readable, Closeable {
      * @since 1.5
      */
     public int read(java.nio.CharBuffer target) throws IOException {
+        //读取字符将数据写入到数组
         int len = target.remaining();
         char[] cbuf = new char[len];
         int n = read(cbuf, 0, len);
