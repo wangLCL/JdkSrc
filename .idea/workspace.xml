@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/net/InetAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/InetAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/net/NetworkInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/NetworkInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/net/ProtocolFamily.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/ProtocolFamily.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/net/StandardProtocolFamily.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/StandardProtocolFamily.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/util/concurrent/atomic/AtomicBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/concurrent/atomic/AtomicBoolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/ContentHandlerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/ContentHandlerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/CookiePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/CookiePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/CookieStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/CookieStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/DatagramSocketImplFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/DatagramSocketImplFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/FileNameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/FileNameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/SocketOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/SocketOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/SocketOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/SocketOptions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693640877796</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="net">
+      <option name="closed" value="true" />
+      <created>1693786284505</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1693786284506</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +248,8 @@
     <MESSAGE value="string" />
     <MESSAGE value="hash" />
     <MESSAGE value="inputStream" />
-    <option name="LAST_COMMIT_MESSAGE" value="inputStream" />
+    <MESSAGE value="net" />
+    <option name="LAST_COMMIT_MESSAGE" value="net" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

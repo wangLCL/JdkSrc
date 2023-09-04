@@ -35,7 +35,10 @@ import java.util.Map;
  * <p>{@link CookieManager} will call {@code CookieStore.add} to save cookies
  * for every incoming HTTP response, and call {@code CookieStore.get} to
  * retrieve cookie for every outgoing HTTP request. A CookieStore
- * is responsible for removing HttpCookie instances which have expired.
+ * is responsible for removing HttpCookie instances which have expired.、
+ *
+ * 表示对象cookie   的存储 ，可以检索cookie
+ * 可以存储和获取cookie  删除过期的
  *
  * @author Edward Wang
  * @since 1.6
@@ -53,6 +56,8 @@ public interface CookieStore {
      *
      * <p>If a cookie corresponding to the given URI already exists,
      * then it is replaced with the new one.
+     *
+     * 加入cookie 每一个传入的http响应都要调用
      *
      * @param uri       the uri this cookie associated with.
      *                  if {@code null}, this cookie will not be associated
@@ -72,6 +77,8 @@ public interface CookieStore {
      * given URI. Only cookies that have not expired are returned.
      * This is called for every outgoing HTTP request.
      *
+     * 检索指定uri的cookie
+     *
      * @return          an immutable list of HttpCookie,
      *                  return empty list if no cookies match the given URI
      *
@@ -87,6 +94,8 @@ public interface CookieStore {
 
     /**
      * Get all not-expired cookies in cookie store.
+     *
+     * 得到所有的cookie
      *
      * @return          an immutable list of http cookies;
      *                  return empty list if there's no http cookie in store

@@ -30,6 +30,8 @@ package java.net;
  * is used by the classes {@code DatagramSocket} to create actual socket
  * implementations.
  *
+ * 接口为数据套接字定义一个工厂，他被类DatagramSocket用于创建实际的套接字实现
+ *
  * @author  Yingxian Wang
  * @see     java.net.DatagramSocket
  * @since   1.3

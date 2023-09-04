@@ -32,6 +32,12 @@ package java.net;
  *
  * <p>See RFC 2965 sec. 3.3 and 7 for more detail.
  *
+ * 实现那些cookie被接受，那些应该被拒绝
+ *
+ * - ACCEPT_ALL:预定于政策接受所有
+ * - ACCEPT_NONE: 不接受coockie
+ * - ACCEPT_ORIGINAL_SERVER:只接受原始服务器的cookie
+ *
  * @author Edward Wang
  * @since 1.6
  */
@@ -68,6 +74,8 @@ public interface CookiePolicy {
 
     /**
      * Will be called to see whether or not this cookie should be accepted.
+     *
+     * 调用来查看是否应该接受该cookie
      *
      * @param uri       the URI to consult accept policy with
      * @param cookie    the HttpCookie object in question

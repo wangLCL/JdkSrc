@@ -33,6 +33,8 @@ package java.net;
  * This interface is used by the {@code URLStreamHandler} class
  * to create a {@code ContentHandler} for a MIME type.
  *
+ * 预定义了一个工厂，实现了将MIME类型映射到contentHandler的实例
+ *
  * @author  James Gosling
  * @see     java.net.ContentHandler
  * @see     java.net.URLStreamHandler

@@ -34,6 +34,8 @@ package java.net;
  * and {@link java.nio.channels.NetworkChannel#getOption(SocketOption) getOption}
  * methods to set and query the channel's socket options.
  *
+ * 套接字选项值类型
+ *
  * @param   <T>     The type of the socket option value.
  *
  * @since 1.7
@@ -45,6 +47,8 @@ public interface SocketOption<T> {
 
     /**
      * Returns the name of the socket option.
+     *
+     * 套接字名称
      *
      * @return the name of the socket option
      */

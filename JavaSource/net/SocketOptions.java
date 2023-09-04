@@ -38,6 +38,8 @@ import java.lang.annotation.Native;
  * DatagramSocketImpl, <B>you won't use these directly.</B> There are
  * type-safe methods to get/set each of these options in Socket, ServerSocket,
  * DatagramSocket and MulticastSocket.
+ *
+ * 获取或者设置套接字选择的方法接口
  * <P>
  * @author David Brown
  */

@@ -29,6 +29,8 @@ package java.net;
  * A simple interface which provides a mechanism to map
  * between a file name and a MIME type string.
  *
+ * 文件名和MIME类型字符串之间的映射机制
+ *
  * @author  Steven B. Byrne
  * @since   JDK1.1
  */
