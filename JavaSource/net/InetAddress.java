@@ -207,9 +207,9 @@ class InetAddress implements java.io.Serializable {
         InetAddressHolder() {}
 
         InetAddressHolder(String hostName, int address, int family) {
-            this.hostName = hostName;
-            this.address = address;
-            this.family = family;
+            this.hostName = hostName;//localhost
+            this.address = address;//127.0.0.1
+            this.family = family;//ipv4
         }
 
         void init(String hostName, int family) {
@@ -1450,12 +1450,13 @@ class InetAddress implements java.io.Serializable {
 
         SecurityManager security = System.getSecurityManager();
         try {
+            //获取本地的hostname;
             String local = impl.getLocalHostName();
 
             if (security != null) {
                 security.checkConnect(local, -1);
             }
-
+            //回环地址
             if (local.equals("localhost")) {
                 return impl.loopbackAddress();
             }
@@ -1543,6 +1544,7 @@ class InetAddress implements java.io.Serializable {
 
         if (impl == null) {
             try {
+                //创建ipv4 or v6
                 impl = Class.forName(implName).newInstance();
             } catch (Exception e) {
                 throw new Error("System property impl.prefix incorrect");

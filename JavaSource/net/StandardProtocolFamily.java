@@ -28,6 +28,8 @@ package java.net;
 /**
  * Defines the standard families of communication protocols.
  *
+ * 定义标准体系
+ *
  * @since 1.7
  */
 

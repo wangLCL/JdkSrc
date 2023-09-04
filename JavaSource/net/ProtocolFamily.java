@@ -27,6 +27,7 @@ package java.net;
 
 /**
  * Represents a family of communication protocols.
+ * 代表一系列通信协议
  *
  * @since 1.7
  */
@@ -34,7 +35,7 @@ package java.net;
 public interface ProtocolFamily {
     /**
      * Returns the name of the protocol family.
-     *
+     * 返回协议组的名称
      * @return the name of the protocol family
      */
     String name();

@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Cloneable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Cloneable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/InetAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/InetAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/NetworkInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/NetworkInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/ProtocolFamily.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/ProtocolFamily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/net/StandardProtocolFamily.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/net/StandardProtocolFamily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/util/concurrent/atomic/AtomicBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/util/concurrent/atomic/AtomicBoolean.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693629529718</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="inputStream">
+      <option name="closed" value="true" />
+      <created>1693640877796</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1693640877796</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

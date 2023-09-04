@@ -158,6 +158,7 @@ public class AtomicBoolean implements java.io.Serializable {
      */
     public final boolean getAndSet(boolean newValue) {
         boolean prev;
+        //得到当前值，  期待值
         do {
             prev = get();
         } while (!compareAndSet(prev, newValue));
@@ -166,6 +167,9 @@ public class AtomicBoolean implements java.io.Serializable {
 
     /**
      * Returns the String representation of the current value.
+     *
+     * boolean的string值
+     *
      * @return the String representation of the current value
      */
     public String toString() {

@@ -36,6 +36,8 @@ import java.security.AccessController;
  * It is used to identify the local interface on which a multicast group
  * is joined.
  *
+ * 通过名称组成的网络接口  分配给此接口的ip地址列表
+ *
  * Interfaces are normally known by names such as "le0".
  *
  * @since 1.4
@@ -80,8 +82,8 @@ public final class NetworkInterface {
     }
 
     NetworkInterface(String name, int index, InetAddress[] addrs) {
-        this.name = name;
-        this.index = index;
+        this.name = name; //网络接口名称
+        this.index = index; //
         this.addrs = addrs;
     }
 
@@ -106,8 +108,11 @@ public final class NetworkInterface {
      * InetAddresses are returned.
      * @return an Enumeration object with all or a subset of the InetAddresses
      * bound to this network interface
+     *
+     * 此接口下的ip地址
      */
     public Enumeration<InetAddress> getInetAddresses() {
+        //迭代一直不变的老套路
 
         class checkedAddresses implements Enumeration<InetAddress> {
 
@@ -131,12 +136,17 @@ public final class NetworkInterface {
                         if (sec != null && !trusted) {
                             sec.checkConnect(addrs[j].getHostAddress(), -1);
                         }
+                        //得到addr ，然后将值给local_addrs
                         local_addrs[count++] = addrs[j];
                     } catch (SecurityException e) { }
                 }
 
             }
 
+            /**
+             * 获取下一个
+             * @return
+             */
             public InetAddress nextElement() {
                 if (i < count) {
                     return local_addrs[i++];
@@ -510,10 +520,12 @@ public final class NetworkInterface {
      * @see     java.net.InetAddress#getAddress()
      */
     public boolean equals(Object obj) {
+        //
         if (!(obj instanceof NetworkInterface)) {
             return false;
         }
         NetworkInterface that = (NetworkInterface)obj;
+        //比较name
         if (this.name != null ) {
             if (!this.name.equals(that.name)) {
                 return false;
