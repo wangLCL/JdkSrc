@@ -36,6 +36,8 @@ package java.lang;
  * byte}, as well as other constants and methods useful when dealing
  * with a {@code byte}.
  *
+ * 一个字节 8为，存储范围：2^8
+ *
  * @author  Nakul Saraiya
  * @author  Joseph D. Darcy
  * @see     java.lang.Number
@@ -74,6 +76,9 @@ public final class Byte extends Number implements Comparable<Byte> {
         return Integer.toString((int)b, 10);
     }
 
+    /**
+     * 缓存数据
+     */
     private static class ByteCache {
         private ByteCache(){}
 

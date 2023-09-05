@@ -110,6 +110,7 @@ class Random implements java.io.Serializable {
      * to be distinct from any other invocation of this constructor.
      */
     public Random() {
+        //在根据当前时间得到初始的种子，
         this(seedUniquifier() ^ System.nanoTime());
     }
 
@@ -117,6 +118,7 @@ class Random implements java.io.Serializable {
         // L'Ecuyer, "Tables of Linear Congruential Generators of
         // Different Sizes and Good Lattice Structure", 1999
         for (;;) {
+            //每次创建一个对象，就重新计算一个值，
             long current = seedUniquifier.get();
             long next = current * 181783497276652981L;
             if (seedUniquifier.compareAndSet(current, next))
@@ -141,6 +143,7 @@ class Random implements java.io.Serializable {
      * @see   #setSeed(long)
      */
     public Random(long seed) {
+        //将传入的种子，进行加工后作为种子
         if (getClass() == Random.class)
             this.seed = new AtomicLong(initialScramble(seed));
         else {
@@ -210,9 +213,10 @@ class Random implements java.io.Serializable {
         do {
             //得到老值
             oldseed = seed.get();
-            //计算出新值
+            //计算出新值    可以看出，随机数是通过固定公式计算来的
             nextseed = (oldseed * multiplier + addend) & mask;
         } while (!seed.compareAndSet(oldseed, nextseed));
+        //将高位移动到低位
         return (int)(nextseed >>> (48 - bits));
     }
 
@@ -237,8 +241,8 @@ class Random implements java.io.Serializable {
      */
     public void nextBytes(byte[] bytes) {
         for (int i = 0, len = bytes.length; i < len; )
-            for (int rnd = nextInt(),
-                     n = Math.min(len - i, Integer.SIZE/Byte.SIZE);
+            //取一次int值，让进行移位   差不多就是一个int从头取到位， int是4个字节
+            for (int rnd = nextInt(), n = Math.min(len - i, Integer.SIZE/Byte.SIZE);
                  n-- > 0; rnd >>= Byte.SIZE)
                 bytes[i++] = (byte)rnd;
     }

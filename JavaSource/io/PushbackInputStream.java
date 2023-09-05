@@ -44,6 +44,8 @@ package java.io;
  * can read until it  sees the operator and
  * then push the operator back to be re-read.
  *
+ *
+ * 可以正向加入，也可以反向加入
  * @author  David Connelly
  * @author  Jonathan Payne
  * @since   JDK1.0
@@ -52,6 +54,8 @@ public
 class PushbackInputStream extends FilterInputStream {
     /**
      * The pushback buffer.
+     *
+     * 数组存储
      * @since   JDK1.1
      */
     protected byte[] buf;
@@ -94,7 +98,7 @@ class PushbackInputStream extends FilterInputStream {
             throw new IllegalArgumentException("size <= 0");
         }
         this.buf = new byte[size];
-        this.pos = size;
+        this.pos = size; //pos在最后
     }
 
     /**
@@ -231,6 +235,7 @@ class PushbackInputStream extends FilterInputStream {
         if (len > pos) {
             throw new IOException("Push back buffer is full");
         }
+        //从后向前写
         pos -= len;
         System.arraycopy(b, off, buf, pos, len);
     }
@@ -307,12 +312,13 @@ class PushbackInputStream extends FilterInputStream {
         if (n <= 0) {
             return 0;
         }
-
+        //剩余位置
         long pskip = buf.length - pos;
         if (pskip > 0) {
             if (n < pskip) {
                 pskip = n;
             }
+            //跳过就将值设置到跳跃的位置
             pos += pskip;
             n -= pskip;
         }

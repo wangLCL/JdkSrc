@@ -129,6 +129,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
      *
      * @serial
      */
+    //符号位-1，0，1
     final int signum;
 
     /**
@@ -140,6 +141,7 @@ public class BigInteger extends Number implements Comparable<BigInteger> {
      * value.  Note that this implies that the BigInteger zero has a
      * zero-length mag array.
      */
+    //存储数值
     final int[] mag;
 
     // These "redundant fields" are initialized with recognizable nonsense
