@@ -413,6 +413,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Returns a power of two size for the given target capacity.
      *
      * 计算为为2的次方数
+     * 100000001
+     * 110000000
+     * 111100000
+     * 111111110
+     * 111111111 - 1
      */
     static final int tableSizeFor(int cap) {
         int n = cap - 1;
@@ -610,19 +615,27 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     /**
      * Implements Map.get and related methods
      *
+     * 方法实现：
+     * - 先确定桶，桶的数据不为null
+     * - 判断桶的头是不是目标
+     *  - 不是，那么判断是树还是链表
+     *  - 从链表或者树中的得到值
+     *
      * @param hash hash for key
      * @param key the key
      * @return the node, or null if none
      */
     final Node<K,V> getNode(int hash, Object key) {
+        //桶
         Node<K,V>[] tab; Node<K,V> first, e; int n; K k;
-        //table不为null，  table大小有值    hash对应的部位null
+        //table不为null，  table大小有值
         if ((tab = table) != null && (n = tab.length) > 0 &&
+//                hash对应的部位null
             (first = tab[(n - 1) & hash]) != null) {
             if (first.hash == hash && // always check first node
-                    //第一个不为null  并且值是相同的
+                    //第一个不为null  并且key是相同的
                 ((k = first.key) == key || (key != null && key.equals(k))))
-                return first;
+                return first; //找到了
             if ((e = first.next) != null) {
                 //判断是不是tree
                 //是树， 从树中得到值
@@ -685,7 +698,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         if ((tab = table) == null || (n = tab.length) == 0)
             //resize创建数组
             n = (tab = resize()).length;
-        //桶为空，直接放入
+        //桶为空，直接放入  也就是头
         if ((p = tab[i = (n - 1) & hash]) == null)
             tab[i] = newNode(hash, key, value, null);
         else {
