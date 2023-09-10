@@ -301,7 +301,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Basic hash bin node, used for most entries.  (See below for
      * TreeNode subclass, and in LinkedHashMap for its Entry subclass.)
      *
-     * 链表
+     * 链表 节点
      */
     static class Node<K,V> implements Map.Entry<K,V> {
         final int hash;
@@ -347,12 +347,20 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
     /**
      * Computes key.hashCode() and spreads (XORs) higher bits of hash
-     * to lower.  Because the table uses power-of-two masking, sets of
-     * hashes that vary only in bits above the current mask will
-     * always collide. (Among known examples are sets of Float keys
-     * holding consecutive whole numbers in small tables.)  So we
+     * to lower.
+     * 计算高位和低位进行x运算
+     * Because the table uses power-of-two masking,
+     * 因为使用的是2的次方
+     * sets of hashes that vary only in bits above the current mask will
+     * always collide.
+     * 仅仅在掩码以上进行运算容易发生碰撞
+     * (Among known examples are sets of Float keys
+     * holding consecutive whole numbers in small tables.)
+     * So we
      * apply a transform that spreads the impact of higher bits
-     * downward. There is a tradeoff between speed, utility, and
+     * downward.
+     *
+     * There is a tradeoff between speed, utility, and
      * quality of bit-spreading. Because many common sets of hashes
      * are already reasonably distributed (so don't benefit from
      * spreading), and because we use trees to handle large sets of
@@ -612,7 +620,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         if ((tab = table) != null && (n = tab.length) > 0 &&
             (first = tab[(n - 1) & hash]) != null) {
             if (first.hash == hash && // always check first node
-                    //第一个不为null就返回
+                    //第一个不为null  并且值是相同的
                 ((k = first.key) == key || (key != null && key.equals(k))))
                 return first;
             if ((e = first.next) != null) {
@@ -726,9 +734,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * @return the table
      */
     final Node<K,V>[] resize() {
+        //老的table
         Node<K,V>[] oldTab = table;
+        //老的容量
         int oldCap = (oldTab == null) ? 0 : oldTab.length; //table长度
-        int oldThr = threshold; //扩容大小
+        int oldThr = threshold; //扩容目标大小
         int newCap, newThr = 0;
         if (oldCap > 0) { //原来不为null
             if (oldCap >= MAXIMUM_CAPACITY) {

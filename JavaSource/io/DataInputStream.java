@@ -39,6 +39,7 @@ package java.io;
  * @see     java.io.DataOutputStream
  * @since   JDK1.0
  */
+//基础数据输入流
 public
 class DataInputStream extends FilterInputStream implements DataInput {
 

@@ -29,6 +29,9 @@ package java.io;
  * The {@code DataInput} interface provides
  * for reading bytes from a binary stream and
  * reconstructing from them data in any of
+ *
+ * 从二进制种读取字节数组
+ *
  * the Java primitive types. There is also
  * a
  * facility for reconstructing a {@code String}

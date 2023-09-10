@@ -584,6 +584,7 @@ public interface Map<K,V> {
      * @since 1.8
      */
     default V getOrDefault(Object key, V defaultValue) {
+        //这个是很尝见到的把，存在就返回，不存在就下载
         V v;
         return (((v = get(key)) != null) || containsKey(key))
             ? v
@@ -739,6 +740,7 @@ public interface Map<K,V> {
      * @since 1.8
      */
     default V putIfAbsent(K key, V value) {
+        //如果不存在就加入
         V v = get(key);
         if (v == null) {
             v = put(key, value);
@@ -783,6 +785,7 @@ public interface Map<K,V> {
      */
     default boolean remove(Object key, Object value) {
         Object curValue = get(key);
+        //删除键值对
         if (!Objects.equals(curValue, value) ||
             (curValue == null && !containsKey(key))) {
             return false;
@@ -835,6 +838,7 @@ public interface Map<K,V> {
      */
     default boolean replace(K key, V oldValue, V newValue) {
         Object curValue = get(key);
+        //替换不存在  不等于  就返回
         if (!Objects.equals(curValue, oldValue) ||
             (curValue == null && !containsKey(key))) {
             return false;
@@ -884,6 +888,8 @@ public interface Map<K,V> {
     default V replace(K key, V value) {
         V curValue;
         if (((curValue = get(key)) != null) || containsKey(key)) {
+            //包含 重新put    我认为这个没有必要在进行第一步操作了把，
+            //仅仅为了得到老值把
             curValue = put(key, value);
         }
         return curValue;
@@ -1170,9 +1176,12 @@ public interface Map<K,V> {
             BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
         Objects.requireNonNull(remappingFunction);
         Objects.requireNonNull(value);
+        //得到老值
         V oldValue = get(key);
+        //老值不存在  就给newValue
         V newValue = (oldValue == null) ? value :
                    remappingFunction.apply(oldValue, value);
+        //
         if(newValue == null) {
             remove(key);
         } else {

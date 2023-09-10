@@ -109,6 +109,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * @throws NullPointerException {@inheritDoc}
      */
     public boolean containsValue(Object value) {
+        //迭代器
         Iterator<Entry<K,V>> i = entrySet().iterator();
         if (value==null) {
             while (i.hasNext()) {
@@ -825,6 +826,8 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
          * implementation returns the string representation of this
          * entry's key followed by the equals character ("<tt>=</tt>")
          * followed by the string representation of this entry's value.
+         *
+         * key + value
          *
          * @return a String representation of this map entry
          */

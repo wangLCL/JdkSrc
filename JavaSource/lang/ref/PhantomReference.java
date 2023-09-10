@@ -50,6 +50,11 @@ package java.lang.ref;
  * @since    1.2
  */
 
+/**
+ * 虚引用是无法获得引用对象的强引用的
+ * @param <T>
+ */
+
 public class PhantomReference<T> extends Reference<T> {
 
     /**
