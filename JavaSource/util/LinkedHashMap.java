@@ -148,6 +148,10 @@ import java.io.IOException;
  * returned by all of this class's collection view methods are created from
  * the iterators of the corresponding collections.
  *
+ * 为了保证遍历顺序和插入顺序
+ *
+ * 目前的理解就是将插入点在使用一个链表联系起来
+ *
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  *
@@ -188,6 +192,8 @@ public class LinkedHashMap<K,V>
 
     /**
      * HashMap.Node subclass for normal LinkedHashMap entries.
+     *
+     * 节点包含了头和尾部
      */
     static class Entry<K,V> extends HashMap.Node<K,V> {
         Entry<K,V> before, after;
@@ -200,11 +206,14 @@ public class LinkedHashMap<K,V>
 
     /**
      * The head (eldest) of the doubly linked list.
+     *
+     * list的头
      */
     transient LinkedHashMap.Entry<K,V> head;
 
     /**
      * The tail (youngest) of the doubly linked list.
+     * 尾
      */
     transient LinkedHashMap.Entry<K,V> tail;
 
@@ -212,15 +221,19 @@ public class LinkedHashMap<K,V>
      * The iteration ordering method for this linked hash map: <tt>true</tt>
      * for access-order, <tt>false</tt> for insertion-order.
      *
+     * 是否允许重新排序
+     * 比如get之后将节点放到链表最后
      * @serial
      */
     final boolean accessOrder;
 
     // internal utilities
-
+    //链表
     // link at the end of list
     private void linkNodeLast(LinkedHashMap.Entry<K,V> p) {
+        //尾部
         LinkedHashMap.Entry<K,V> last = tail;
+        //加到尾部，但是头为null，所以没值
         tail = p;
         if (last == null)
             head = p;
@@ -253,8 +266,10 @@ public class LinkedHashMap<K,V>
     }
 
     Node<K,V> newNode(int hash, K key, V value, Node<K,V> e) {
+        //创建节点
         LinkedHashMap.Entry<K,V> p =
             new LinkedHashMap.Entry<K,V>(hash, key, value, e);
+        //加入链表
         linkNodeLast(p);
         return p;
     }
@@ -412,6 +427,7 @@ public class LinkedHashMap<K,V>
      *         specified value
      */
     public boolean containsValue(Object value) {
+        //遍历
         for (LinkedHashMap.Entry<K,V> e = head; e != null; e = e.after) {
             V v = e.value;
             if (v == value || (value != null && value.equals(v)))
@@ -678,6 +694,10 @@ public class LinkedHashMap<K,V>
             throw new ConcurrentModificationException();
     }
 
+    /**
+     * 替换只是对值进行替换
+     * @param function the function to apply to each entry
+     */
     public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
         if (function == null)
             throw new NullPointerException();
@@ -716,6 +736,10 @@ public class LinkedHashMap<K,V>
             return e;
         }
 
+        /**
+         * 删除
+         * 1.开始节点
+         */
         public final void remove() {
             Node<K,V> p = current;
             if (p == null)
