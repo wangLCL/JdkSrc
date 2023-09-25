@@ -56,7 +56,7 @@ public class AtomicInteger extends Number implements java.io.Serializable {
 
     // setup to use Unsafe.compareAndSwapInt for updates
     private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final long valueOffset;//获取地址
+    private static final long valueOffset;//获取地址  直接操作内存
 
     static {
         try {

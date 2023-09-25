@@ -1302,6 +1302,7 @@ public class WeakHashMap<K,V>
             WeakHashMap.Entry<K,V>[] tab = map.table;
             if (tab.length >= (hi = getFence()) && index >= 0) {
                 while (current != null || index < hi) {
+                    //current == null
                     if (current == null)
                         current = tab[index++];
                     else {
