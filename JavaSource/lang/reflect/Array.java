@@ -69,6 +69,8 @@ class Array {
      * instance exceed 255.
      * @exception NegativeArraySizeException if the specified {@code length}
      * is negative
+     *
+     * 根据类型和长度使用native创建数组
      */
     public static Object newInstance(Class<?> componentType, int length)
         throws NegativeArraySizeException {

@@ -32,6 +32,15 @@ package java.lang.annotation;
  * how long annotations are to be retained.
  *
  * 注解的时间性
+ *
+ * 在什么时候起作用
+ *
+ * 比如源代码时期，仅仅作为校验使用
+ *
+ * @Target(ElementType.METHOD)
+ * @Retention(RetentionPolicy.SOURCE)
+ * public @interface Override {
+ * }
  * @author  Joshua Bloch
  * @since 1.5
  */
@@ -40,6 +49,11 @@ public enum RetentionPolicy {
      * Annotations are to be discarded by the compiler.
      *
      * 注释将被编译器丢弃。   比如  覆盖父类方法，这个只能提示用户，他并没其他用
+     *
+     * @Target(ElementType.METHOD)
+     * @Retention(RetentionPolicy.SOURCE)
+     * public @interface Override {
+     * }
      */
     SOURCE,
 

@@ -76,6 +76,15 @@ package java.lang.annotation;
 
 /**
  * 指示注释类型适用的上下文
+ *
+ * 比如字段  类   方法
+ *
+ * @Documented
+ * @Target({ElementType.FIELD})
+ * @Retention(RetentionPolicy.RUNTIME)
+ * public @interface Value {
+ *     String value() default "null";
+ * }
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

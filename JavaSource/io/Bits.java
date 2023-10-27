@@ -38,7 +38,7 @@ class Bits {
      * Methods for unpacking primitive values from byte arrays starting at
      * given offsets.
      *
-     * 某一个bit位
+     * 某一个bit位   一位存储，非0为真
      */
 
     static boolean getBoolean(byte[] b, int off) {
@@ -47,6 +47,11 @@ class Bits {
 
     /**
      * char是两位  读取off 和 off+1位  各位 十位
+     *
+     * -128~127
+     *
+     *
+     * 求于的目的是将其它都变为0
      * @param b
      * @param off
      * @return

@@ -221,6 +221,7 @@ class BufferedInputStream extends FilterInputStream {
     private void fill() throws IOException {
         //得到 buffer
         byte[] buffer = getBufIfOpen();
+        //标志位小于0，表示没有数据
         if (markpos < 0)
             pos = 0;            /* no mark: throw away the buffer */
         else if (pos >= buffer.length)  /* no room left in buffer */
