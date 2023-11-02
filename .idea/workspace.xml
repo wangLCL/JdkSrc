@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="06d6e8cd-69ef-4880-9b49-02fbe45efb6d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/Bits.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/Bits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/io/BufferedInputStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/RetentionPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/RetentionPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSource/lang/annotation/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/annotation/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaSource/lang/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaSource/lang/Class.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695601869270</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Map">
+      <option name="closed" value="true" />
+      <created>1698365844060</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1698365844060</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

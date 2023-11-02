@@ -148,6 +148,7 @@ public final class Class<T> implements java.io.Serializable,
      * @return a string representation of this class object.
      */
     public String toString() {
+        //是否为接口  是否是基本数据类型
         return (isInterface() ? "interface " : (isPrimitive() ? "" : "class "))
             + getName();
     }
@@ -179,18 +180,20 @@ public final class Class<T> implements java.io.Serializable,
      * @since 1.8
      */
     public String toGenericString() {
+        //如果是基本数据类型
         if (isPrimitive()) {
             return toString();
         } else {
             StringBuilder sb = new StringBuilder();
 
+            //修饰符
             // Class modifiers are a superset of interface modifiers
             int modifiers = getModifiers() & Modifier.classModifiers();
             if (modifiers != 0) {
                 sb.append(Modifier.toString(modifiers));
                 sb.append(' ');
             }
-
+            //注解
             if (isAnnotation()) {
                 sb.append('@');
             }
@@ -252,6 +255,15 @@ public final class Class<T> implements java.io.Serializable,
      * @exception ExceptionInInitializerError if the initialization provoked
      *            by this method fails
      * @exception ClassNotFoundException if the class cannot be located
+     */
+    /**
+     * 包名 + 类名
+     * 是否执行静态方法块
+     * 类加载器
+     *
+     * @param className
+     * @return
+     * @throws ClassNotFoundException
      */
     @CallerSensitive
     public static Class<?> forName(String className)
